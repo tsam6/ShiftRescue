@@ -3,7 +3,10 @@
 ## Implemented today
 ```mermaid
 flowchart LR
-    CLI[CLI] --> Rules[Deterministic eligibility checks]
+    CLI[CLI] --> Workflow[Local simulation workflow]
+    Workflow --> Store[(SQLite state, booking, outbox, audit)]
+    Workflow --> Rules
+    CLI --> Rules[Deterministic eligibility checks]
     Data[Synthetic JSON roster and shift] --> Rules
     Rules --> Plan[Coverage plan for review]
     Agent[Strands agent / Bedrock] --> Tool[Read-only coverage tool]

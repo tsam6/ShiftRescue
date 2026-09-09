@@ -1,7 +1,7 @@
 # ShiftRescue
 
 Volunteer shift coverage assistant built with the Strands Agents SDK.
-**Day-one foundation; synthetic data only. No external messages are sent.**
+**Local prototype; synthetic data only. No external messages are sent.**
 
 ## What it is for
 A small food pantry has a willing backup volunteer pool, but its coordinator
@@ -17,8 +17,9 @@ ShiftRescue aims to take that coordination work off their plate.
 - Real Strands agent constructor and read-only tool for explaining that plan using Bedrock.
 - Focused tests for eligibility, conflicts, and no-backup escalation.
 
-Email delivery, responses, persistent bookings, coordinator UI, and deployment are
-**not implemented yet**. The offline demo is not evidence of an autonomous agent run.
+Local simulated offers, explicit scripted replies, expiry, and transactional SQLite
+bookings are implemented. Real email delivery, authenticated reply endpoints,
+coordinator UI, and deployment are **not implemented yet**. The offline demo is not evidence of an autonomous agent run.
 
 ## Setup
 Python 3.10+:
@@ -65,3 +66,23 @@ MIT — see [LICENSE](LICENSE). When published, set the repository About descrip
 - https://strandsagents.com/docs/user-guide/quickstart/python/
 - https://docs.aws.amazon.com/signin/latest/userguide/create-builder-id.html
 - https://docs.aws.amazon.com/signin/latest/userguide/differences-builder-id.html
+
+## Replay the local coverage workflow (no AWS charges)
+
+```sh
+shiftrescue simulate --database runtime/covered.sqlite3
+shiftrescue simulate --outcome unfilled --database runtime/unfilled.sqlite3
+```
+
+Use a new database filename for each replay; existing runs are never overwritten.
+The first replay records a cancellation, approves simulated outreach, records Blair's
+decline and Casey's acceptance, and persists the booking. The second lets Casey's
+offer expire and escalates. Timestamps and replies are scripted, not live events.
+No model is invoked. Simulated outbox entries have `delivered=false`.
+
+The local store handles one scenario per database. It serializes updates with SQLite
+transactions; duplicate and stale acceptances cannot create another booking.
+Offer expiry is processed when the workflow is advanced, not by a background worker.
+Tokens are local test capabilities, not a complete authentication implementation.
+The Strands entry point still only explains the read-only eligibility plan; wiring
+the agent to the new workflow tools is a subsequent milestone.

@@ -26,3 +26,8 @@ and About description. Keep .venv, .env, runtime data and credentials excluded.
 - [ ] AWS Builder ID confirmed
 - [ ] Optional synthetic live demo URL
 - [ ] Optional AWS Builder Center post with Agents for Humans in title
+
+## AWS credit status
+Owner has requested hackathon credits and is awaiting approval. Do not invoke paid
+models or deploy billable resources without explicit owner approval. Local simulation
+requires no AWS credentials or network services.

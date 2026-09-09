@@ -14,7 +14,7 @@ the wrong role, Eden cannot cover the full shift, Finley has not opted into back
 requests, Gray has a conflicting commitment, and Alex canceled. Nothing is sent.
 `shiftrescue agent` adds a real model explanation when Bedrock is configured.
 
-## Target end-to-end demo (next milestones, not implemented)
+## Target end-to-end demo (local scripted replay implemented; live delivery and UI pending)
 1. Coordinator records Alex's cancellation; review panel shows one open position.
 2. Coordinator approves contacting eligible backups.
 3. Agent requests Blair's help; a test volunteer explicitly declines.
