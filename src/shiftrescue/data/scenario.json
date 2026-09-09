@@ -1,0 +1,137 @@
+{
+  "synthetic": true,
+  "organization": "Harbor Community Pantry (fictional)",
+  "shift": {
+    "id": "shift-001",
+    "role": "pantry_distribution",
+    "start": "2026-09-12T09:00:00-04:00",
+    "end": "2026-09-12T12:00:00-04:00",
+    "cancelled_volunteer_id": "v1"
+  },
+  "volunteers": [
+    {
+      "id": "v1",
+      "name": "Alex",
+      "email": "alex@example.org",
+      "roles": [
+        "pantry_distribution"
+      ],
+      "backup_opt_in": true,
+      "availability": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "commitments": [],
+      "recent_backup_requests": 2
+    },
+    {
+      "id": "v2",
+      "name": "Blair",
+      "email": "blair@example.org",
+      "roles": [
+        "pantry_distribution"
+      ],
+      "backup_opt_in": true,
+      "availability": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "commitments": [],
+      "recent_backup_requests": 0
+    },
+    {
+      "id": "v3",
+      "name": "Casey",
+      "email": "casey@example.org",
+      "roles": [
+        "pantry_distribution"
+      ],
+      "backup_opt_in": true,
+      "availability": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "commitments": [],
+      "recent_backup_requests": 2
+    },
+    {
+      "id": "v4",
+      "name": "Drew",
+      "email": "drew@example.org",
+      "roles": [
+        "food_collection"
+      ],
+      "backup_opt_in": true,
+      "availability": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "commitments": [],
+      "recent_backup_requests": 2
+    },
+    {
+      "id": "v5",
+      "name": "Eden",
+      "email": "eden@example.org",
+      "roles": [
+        "pantry_distribution"
+      ],
+      "backup_opt_in": true,
+      "availability": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T10:00:00-04:00"
+        }
+      ],
+      "commitments": [],
+      "recent_backup_requests": 2
+    },
+    {
+      "id": "v6",
+      "name": "Finley",
+      "email": "finley@example.org",
+      "roles": [
+        "pantry_distribution"
+      ],
+      "backup_opt_in": false,
+      "availability": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "commitments": [],
+      "recent_backup_requests": 2
+    },
+    {
+      "id": "v7",
+      "name": "Gray",
+      "email": "gray@example.org",
+      "roles": [
+        "pantry_distribution"
+      ],
+      "backup_opt_in": true,
+      "availability": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "commitments": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "recent_backup_requests": 2
+    }
+  ]
+}

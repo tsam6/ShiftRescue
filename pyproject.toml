@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shiftrescue"
+version = "0.1.0"
+description = "Volunteer shift coverage assistant built with Strands Agents"
+requires-python = ">=3.10"
+dependencies = ["strands-agents>=1,<2"]
+license = "MIT"
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+shiftrescue = "shiftrescue.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+shiftrescue = ["data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
