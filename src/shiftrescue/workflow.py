@@ -81,13 +81,14 @@ class Workflow:
         state['status'] = 'seeking_coverage'
         self.event(state, now, 'request_simulated', volunteer['id'])
 
-    def approve(self, now):
+    def approve(self, now, dispatch=True):
         with self.transaction() as (db, state):
             self.check_time(state, now)
             if not state['approved']:
                 state['approved'] = True
                 self.event(state, now, 'coordinator_approved', 'Synthetic backup outreach')
-            self.advance(state, now)
+            if dispatch:
+                self.advance(state, now)
             self.save(db, state)
         return self.snapshot()
 
@@ -98,7 +99,7 @@ class Workflow:
             self.save(db, state)
         return self.snapshot()
 
-    def reply(self, token, decision, now):
+    def reply(self, token, decision, now, dispatch=True):
         if decision not in ('accept', 'decline'):
             raise ValueError('Reply must be accept or decline')
         with self.transaction() as (db, state):
@@ -110,7 +111,8 @@ class Workflow:
             elif decision == 'decline':
                 offer['status'] = 'declined'
                 self.event(state, now, 'declined', offer['volunteer_id'])
-                self.advance(state, now)
+                if dispatch:
+                    self.advance(state, now)
             else:
                 eligible = {v['id'] for v in coverage_plan(state['scenario'])['eligible']}
                 if offer['volunteer_id'] not in eligible:

@@ -28,6 +28,7 @@ and About description. Keep .venv, .env, runtime data and credentials excluded.
 - [ ] Optional AWS Builder Center post with Agents for Humans in title
 
 ## AWS credit status
-Owner has requested hackathon credits and is awaiting approval. Do not invoke paid
+Owner reports receiving hackathon credits. Applied balance, expiry, and eligible
+services have not been verified; AWS billing currently requires sign-in. Do not invoke paid
 models or deploy billable resources without explicit owner approval. Local simulation
 requires no AWS credentials or network services.

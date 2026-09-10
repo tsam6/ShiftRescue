@@ -9,8 +9,9 @@ flowchart LR
     CLI --> Rules[Deterministic eligibility checks]
     Data[Synthetic JSON roster and shift] --> Rules
     Rules --> Plan[Coverage plan for review]
-    Agent[Strands agent / Bedrock] --> Tool[Read-only coverage tool]
+    Agent[Strands agent / Bedrock] --> Tool[Inspect and advance tools]
     Tool --> Rules
+    Tool --> Workflow
 ```
 
 ## Planned MVP

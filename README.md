@@ -14,7 +14,8 @@ ShiftRescue aims to take that coordination work off their plate.
   cancellation, and overlapping commitments.
 - Outreach order prioritizes people who received fewer recent backup requests.
 - Offline CLI to inspect the proposed plan without an AWS account.
-- Real Strands agent constructor and read-only tool for explaining that plan using Bedrock.
+- Strands workflow tools for inspecting persisted state and advancing approved coverage requests.
+- A bounded live-demo runner that uses Bedrock with scripted volunteer replies.
 - Focused tests for eligibility, conflicts, and no-backup escalation.
 
 Local simulated offers, explicit scripted replies, expiry, and transactional SQLite
@@ -84,5 +85,29 @@ The local store handles one scenario per database. It serializes updates with SQ
 transactions; duplicate and stale acceptances cannot create another booking.
 Offer expiry is processed when the workflow is advanced, not by a background worker.
 Tokens are local test capabilities, not a complete authentication implementation.
-The Strands entry point still only explains the read-only eligibility plan; wiring
-the agent to the new workflow tools is a subsequent milestone.
+The `agent` command explains the read-only plan. The `live-demo` command connects
+Strands to the persistent workflow, with explicit scripted replies outside the model.
+
+## Run the integrated Bedrock demo
+
+First confirm AWS credits are applied and cover Bedrock, then configure a credential
+profile, region, and an accessible model ID as above. Do not run this command until
+credit coverage is verified or you have approved paying for inference.
+
+```sh
+shiftrescue live-demo --database runtime/live-covered.sqlite3
+# Optional second run, after inspecting the first run and usage:
+shiftrescue live-demo --outcome unfilled --database runtime/live-unfilled.sqlite3
+```
+
+Each run uses a new database. The application records coordinator approval, then
+the agent reads state and advances outreach via tools. Scripted volunteers provide
+explicit decline/acceptance events outside the agent. The model cannot approve
+outreach, fabricate a response, change the clock, access offer tokens, or bypass
+eligibility. The tool effects are real local SQLite writes; messages are simulated.
+
+The runner verifies each expected offer and final state, saving model explanations
+beside the database as `.transcript.json`. A limit of 12 model calls per agent and
+600 output tokens per model response bounds the run; SDK model-loop retries and
+Bedrock client retries are disabled. This is not a dollar-denominated billing cap.
+AWS credit verification and live Bedrock execution remain pending.

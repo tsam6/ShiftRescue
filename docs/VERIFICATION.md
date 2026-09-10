@@ -28,3 +28,15 @@ Both CLI replays passed: covered by Casey after Blair declines; escalated after
 Casey's offer expires. No AWS model, external email, or hosted service was used.
 Real email, live replies, UI, and deployment remain pending; local persistence and
 scripted replies are now implemented, superseding the day-one status above.
+
+## Strands workflow integration — September 9, 2026
+
+11 tests pass. The new integration test executes the actual Strands event loop
+with an explicitly scripted local model: inspect tool, advance tool, final response.
+It verifies a persistent offer is created. Additional checks ensure approval gating,
+no token exposure to the model, and the model-call guard. This proves SDK/tool wiring,
+not real-model reasoning or Bedrock access. No paid calls were made.
+
+Live runner supports covered and unfilled branches, asserts persisted outcomes, and
+saves model explanations. AWS credentials are absent locally; credit and Bedrock
+verification require the owner's sign-in. GitHub publication also awaits sign-in.

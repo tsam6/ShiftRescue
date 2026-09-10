@@ -5,7 +5,7 @@ from .domain import coverage_plan, load_scenario
 
 def main():
     parser = argparse.ArgumentParser(description="ShiftRescue synthetic prototype")
-    parser.add_argument("mode", choices=["demo", "simulate", "agent"], nargs="?", default="demo")
+    parser.add_argument("mode", choices=["demo", "simulate", "agent", "live-demo"], nargs="?", default="demo")
     parser.add_argument("--database", default="runtime/demo.sqlite3", help="New SQLite file for a simulation")
     parser.add_argument("--outcome", choices=["covered", "unfilled"], default="covered")
     args = parser.parse_args()
@@ -34,13 +34,19 @@ def main():
             print(f"{event['time']} | {event['kind']} | {event['detail']}")
         print(f"Result: {state['status']}; booking: {state['booking']}")
         print(f"Saved to {path.resolve()}")
+    elif args.mode == "live-demo":
+        from .live_demo import run
+        try:
+            run(args.database, args.outcome)
+        except (ValueError, RuntimeError) as error:
+            parser.error(str(error))
     else:
         from .agent import build_agent
         try:
             agent = build_agent()
         except ValueError as error:
             parser.error(str(error))
-        agent("Inspect the sample cancellation and propose an outreach plan for coordinator review.")
+        print(agent("Inspect the sample cancellation and propose an outreach plan for coordinator review."))
 
 
 if __name__ == "__main__":
