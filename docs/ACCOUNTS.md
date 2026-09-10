@@ -40,3 +40,12 @@ AWS Free Tier credit (expires September 9, 2027) and $50 promotional credit
 AgentCore among applicable services. Displayed usage is $0; billing estimates
 update approximately daily. Browser sign-in is working; local SDK authentication
 and model invocation are still unverified.
+
+## Local authentication — September 9, 2026
+AWS CLI profile `shiftrescue` successfully passed the STS identity check. Temporary
+login also works from the app after adding botocore[crt]. Session is currently a
+root session; use a scoped development identity before routine deployment.
+Bedrock ConverseStream for us.amazon.nova-lite-v1:0 in us-east-1 returned
+AccessDeniedException: account verification in progress (AWS says normally under
+two hours). No model response was returned. Retry after verification clears;
+if still blocked after two hours, AWS directs users to aws-verification@amazon.com.

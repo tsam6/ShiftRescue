@@ -40,3 +40,7 @@ not real-model reasoning or Bedrock access. No paid calls were made.
 Live runner supports covered and unfilled branches, asserts persisted outcomes, and
 saves model explanations. AWS credentials are absent locally; credit and Bedrock
 verification require the owner's sign-in. GitHub publication also awaits sign-in.
+
+September 9 AWS connectivity check: CLI STS succeeded; Python authentication
+succeeded after installing AWS CRT. First inference request was blocked by AWS
+account verification, before any model response. Full live demo remains unverified.

@@ -7,7 +7,7 @@ name = "shiftrescue"
 version = "0.1.0"
 description = "Volunteer shift coverage assistant built with Strands Agents"
 requires-python = ">=3.10"
-dependencies = ["strands-agents>=1,<2"]
+dependencies = ["strands-agents>=1,<2", "botocore[crt]>=1.43.90,<2"]
 license = "MIT"
 
 [project.optional-dependencies]

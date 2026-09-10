@@ -51,3 +51,4 @@ urllib3==2.7.0
 uvicorn==0.52.4
 watchdog==6.0.0
 wrapt==2.4.0
+awscrt==0.36.0
