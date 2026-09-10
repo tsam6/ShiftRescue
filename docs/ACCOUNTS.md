@@ -32,3 +32,11 @@ Owner reports receiving hackathon credits. Applied balance, expiry, and eligible
 services have not been verified; AWS billing currently requires sign-in. Do not invoke paid
 models or deploy billable resources without explicit owner approval. Local simulation
 requires no AWS credentials or network services.
+
+## Credit verification — September 9, 2026
+Verified in signed-in AWS Billing console: total remaining $150, comprising $100
+AWS Free Tier credit (expires September 9, 2027) and $50 promotional credit
+(expires October 31, 2026). The $50 credit lists Amazon Bedrock and Bedrock
+AgentCore among applicable services. Displayed usage is $0; billing estimates
+update approximately daily. Browser sign-in is working; local SDK authentication
+and model invocation are still unverified.
