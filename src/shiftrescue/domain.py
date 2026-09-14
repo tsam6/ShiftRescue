@@ -20,6 +20,8 @@ def rejection_reasons(volunteer, shift):
     if end <= start:
         raise ValueError("Shift must end after it starts")
     reasons = []
+    if volunteer.get("qualification_review") != "approved":
+        reasons.append("Coordinator qualification review required")
     if volunteer["id"] == shift["cancelled_volunteer_id"]:
         reasons.append("Cancelled this shift")
     if not volunteer["backup_opt_in"]:
@@ -43,7 +45,10 @@ def coverage_plan(scenario):
             excluded.append({"id": volunteer["id"], "name": volunteer["name"], "reasons": reasons})
         else:
             eligible.append({"id": volunteer["id"], "name": volunteer["name"],
-                             "recent_backup_requests": volunteer["recent_backup_requests"]})
+                             "recent_backup_requests": volunteer["recent_backup_requests"],
+                             "reasons": ["Qualifications reviewed", "Required role confirmed", "Available for full shift", "No overlapping commitment", "Opted in to backup requests"],
+                             "previous_shifts": volunteer.get("previous_shifts", 0),
+                             "distance_miles": volunteer.get("distance_miles")})
     eligible.sort(key=lambda v: (v["recent_backup_requests"], v["id"]))
     return {"synthetic": True, "shift": scenario["shift"], "eligible": eligible,
             "excluded": excluded, "status": "awaiting_coordinator_review" if eligible else "needs_coordinator",

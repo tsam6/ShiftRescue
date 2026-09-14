@@ -24,7 +24,10 @@
         }
       ],
       "commitments": [],
-      "recent_backup_requests": 2
+      "recent_backup_requests": 2,
+      "qualification_review": "approved",
+      "previous_shifts": 1,
+      "distance_miles": 4
     },
     {
       "id": "v2",
@@ -41,7 +44,10 @@
         }
       ],
       "commitments": [],
-      "recent_backup_requests": 0
+      "recent_backup_requests": 0,
+      "qualification_review": "approved",
+      "previous_shifts": 3,
+      "distance_miles": 2
     },
     {
       "id": "v3",
@@ -58,7 +64,10 @@
         }
       ],
       "commitments": [],
-      "recent_backup_requests": 2
+      "recent_backup_requests": 2,
+      "qualification_review": "approved",
+      "previous_shifts": 1,
+      "distance_miles": 4
     },
     {
       "id": "v4",
@@ -75,7 +84,10 @@
         }
       ],
       "commitments": [],
-      "recent_backup_requests": 2
+      "recent_backup_requests": 2,
+      "qualification_review": "approved",
+      "previous_shifts": 1,
+      "distance_miles": 4
     },
     {
       "id": "v5",
@@ -92,7 +104,10 @@
         }
       ],
       "commitments": [],
-      "recent_backup_requests": 2
+      "recent_backup_requests": 2,
+      "qualification_review": "approved",
+      "previous_shifts": 1,
+      "distance_miles": 4
     },
     {
       "id": "v6",
@@ -109,7 +124,10 @@
         }
       ],
       "commitments": [],
-      "recent_backup_requests": 2
+      "recent_backup_requests": 2,
+      "qualification_review": "approved",
+      "previous_shifts": 1,
+      "distance_miles": 4
     },
     {
       "id": "v7",
@@ -131,7 +149,30 @@
           "end": "2026-09-12T12:00:00-04:00"
         }
       ],
-      "recent_backup_requests": 2
+      "recent_backup_requests": 2,
+      "qualification_review": "approved",
+      "previous_shifts": 1,
+      "distance_miles": 4
+    },
+    {
+      "id": "v8",
+      "name": "Harper",
+      "email": "harper@example.org",
+      "roles": [
+        "pantry_distribution"
+      ],
+      "backup_opt_in": true,
+      "availability": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "commitments": [],
+      "recent_backup_requests": 0,
+      "qualification_review": "pending",
+      "previous_shifts": 0,
+      "distance_miles": 1
     }
   ]
 }

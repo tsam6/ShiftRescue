@@ -20,7 +20,7 @@ shiftrescue = "shiftrescue.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-shiftrescue = ["data/*.json"]
+shiftrescue = ["data/*.json", "web/*.html"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

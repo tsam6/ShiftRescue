@@ -61,11 +61,16 @@ class Workflow:
         for offer in state['offers']:
             if offer['status'] == 'pending':
                 if instant(now) < instant(offer['expires']):
+                    if instant(now) >= instant(offer.get('follow_up_at', offer['expires'])) and not offer.get('followed_up'):
+                        offer['followed_up'] = True
+                        state['outbox'].append(dict(kind='follow_up', volunteer_id=offer['volunteer_id'], simulated=True, delivered=False,
+                                                    body='Are you able to cover this shift? Please accept or decline before the offer expires.'))
+                        self.event(state, now, 'follow_up_simulated', offer['volunteer_id'])
                     return
                 offer['status'] = 'expired'
                 self.event(state, now, 'offer_expired', offer['volunteer_id'])
         attempted = {o['volunteer_id'] for o in state['offers']}
-        candidates = [v for v in coverage_plan(state['scenario'])['eligible'] if v['id'] not in attempted]
+        candidates = [v for v in coverage_plan(state['scenario'])['eligible'] if v['id'] not in attempted and v['id'] in state.get('approved_candidates', [c['id'] for c in coverage_plan(state['scenario'])['eligible']])]
         shift = state['scenario']['shift']
         if not candidates or instant(now) >= instant(shift['start']):
             if state['status'] != 'needs_coordinator':
@@ -74,17 +79,23 @@ class Workflow:
             return
         volunteer = candidates[0]
         expires = min(instant(now) + timedelta(minutes=15), instant(shift['start'])).isoformat()
-        offer = dict(token=secrets.token_urlsafe(24), volunteer_id=volunteer['id'], status='pending', expires=expires)
+        offer = dict(token=secrets.token_urlsafe(24), volunteer_id=volunteer['id'], status='pending', expires=expires,
+                     follow_up_at=min(instant(now)+timedelta(minutes=10), instant(expires)).isoformat(), followed_up=False)
         state['offers'].append(offer)
         state['outbox'].append(dict(kind='coverage_request', volunteer_id=volunteer['id'],
                                     simulated=True, delivered=False, body=f"Can you cover {shift['role']} from {shift['start']} to {shift['end']}?", expires=expires))
         state['status'] = 'seeking_coverage'
         self.event(state, now, 'request_simulated', volunteer['id'])
 
-    def approve(self, now, dispatch=True):
+    def approve(self, now, dispatch=True, candidate_ids=None):
         with self.transaction() as (db, state):
             self.check_time(state, now)
             if not state['approved']:
+                eligible = {v['id'] for v in coverage_plan(state['scenario'])['eligible']}
+                selected = eligible if candidate_ids is None else set(candidate_ids)
+                if (candidate_ids is not None and not selected) or not selected <= eligible:
+                    raise ValueError('Select at least one eligible, reviewed volunteer')
+                state['approved_candidates'] = sorted(selected)
                 state['approved'] = True
                 self.event(state, now, 'coordinator_approved', 'Synthetic backup outreach')
             if dispatch:

@@ -9,10 +9,12 @@ manually checks eligibility, contacts people, follows up, and updates the roster
 ShiftRescue aims to take that coordination work off their plate.
 
 ## Current implementation
-- Seven fictional volunteers and one fictional pantry shift.
-- Working deterministic checks for role, full-shift availability, backup opt-in,
+- Eight fictional volunteers and one fictional pantry shift.
+- Working deterministic checks for coordinator qualification review, role, full-shift availability, backup opt-in,
   cancellation, and overlapping commitments.
 - Outreach order prioritizes people who received fewer recent backup requests.
+- Local coordinator dashboard with candidate reasons, selected-pool approval, simulated replies,
+  and a follow-up desk with one reminder per offer.
 - Offline CLI to inspect the proposed plan without an AWS account.
 - Strands workflow tools for inspecting persisted state and advancing approved coverage requests.
 - A bounded live-demo runner that uses Bedrock with scripted volunteer replies.
@@ -20,7 +22,7 @@ ShiftRescue aims to take that coordination work off their plate.
 
 Local simulated offers, explicit scripted replies, expiry, and transactional SQLite
 bookings are implemented. Real email delivery, authenticated reply endpoints,
-coordinator UI, and deployment are **not implemented yet**. The offline demo is not evidence of an autonomous agent run.
+and deployment are **not implemented yet**. The coordinator UI is local and uses a replay clock. The offline demo is not evidence of an autonomous agent run.
 
 ## Setup
 Python 3.10+:
@@ -110,4 +112,22 @@ The runner verifies each expected offer and final state, saving model explanatio
 beside the database as `.transcript.json`. A limit of 12 model calls per agent and
 600 output tokens per model response bounds the run; SDK model-loop retries and
 Bedrock client retries are disabled. This is not a dollar-denominated billing cap.
-AWS credit verification and live Bedrock execution remain pending.
+AWS credits have been verified. The first Bedrock call was blocked by account verification;
+successful live Bedrock execution remains unverified.
+
+## Open the coordinator dashboard
+
+```sh
+shiftrescue serve --database runtime/coordinator.sqlite3 --port 8765
+```
+
+Open http://127.0.0.1:8765. This loopback-only screen makes no AWS calls and sends
+no emails. Approve the selected backups, advance 10 minutes to see a reminder,
+decline as Blair, then accept as Casey. Coverage and the activity trail persist.
+Use **New demo** for another run; it preserves the previous database and creates a
+new file. Restarting the server opens the database named on the command line.
+
+Unreviewed candidates are excluded even when nearby. Qualifications are fixture
+inputs, not AI assessments; the UI approves outreach, not qualification status.
+Distance and prior experience are shown as context. Service-hour categories,
+post-shift retention follow-ups, CRM integration, and live scheduling are not implemented.

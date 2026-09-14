@@ -44,3 +44,16 @@ verification require the owner's sign-in. GitHub publication also awaits sign-in
 September 9 AWS connectivity check: CLI STS succeeded; Python authentication
 succeeded after installing AWS CRT. First inference request was blocked by AWS
 account verification, before any model response. Full live demo remains unverified.
+
+## Coordinator review and follow-ups — September 13, 2026
+
+15 tests pass. Added coverage for unreviewed-candidate exclusion and approval rollback,
+restriction to the selected backup pool, one reminder per offer with none after
+acceptance, and dashboard actions with non-destructive new-demo creation.
+
+Browser verification passed on the local dashboard: approve Blair/Casey, advance
+10 minutes, observe one reminder, decline as Blair, accept as Casey, and observe
+confirmed coverage with no pending follow-ups. Desktop layout was visually checked.
+This supersedes the earlier UI-pending status. No model or external email was used.
+Qualification review is a fixture field; service-hour grouping and retention
+follow-ups are not implemented.

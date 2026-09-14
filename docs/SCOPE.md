@@ -3,8 +3,9 @@
 ## Audience and outcome
 One small food pantry with recurring shifts, a roster of approved backups, and
 manual coordinator outreach. Reduce coordination effort and uncovered shifts.
-This does not solve a shortage of willing volunteers. No customer validation or
-measured savings are claimed; outreach has been sent by the project owner.
+This does not solve a shortage of willing volunteers. Coordinator conversations describe manual follow-ups, candidate-finding difficulties,
+and qualification review needs. Another email describes after-hours cancellation
+coverage difficulties. No pilot or measured savings are claimed.
 
 ## MVP acceptance criteria
 1. Coordinator records a cancellation and reviews eligible backup candidates.
@@ -21,7 +22,8 @@ One organization, one uncovered position, full-shift coverage, email only.
 Deterministic eligibility rules and transactional booking; model explains and
 coordinates but cannot waive rules or invent acceptance. Start with a synthetic
 outbox and test replies before connecting a real delivery provider.
-Next: SQLite persistence and a small API; coordinator interface on September 11.
+SQLite persistence, a loopback API, and a coordinator interface are implemented.
+Live delivery, deployment, and successful Bedrock execution remain outstanding.
 
 ## Not in the initial version
 SMS, multi-organization accounts, automatic inbox cancellation detection, partial

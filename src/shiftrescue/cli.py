@@ -5,11 +5,15 @@ from .domain import coverage_plan, load_scenario
 
 def main():
     parser = argparse.ArgumentParser(description="ShiftRescue synthetic prototype")
-    parser.add_argument("mode", choices=["demo", "simulate", "agent", "live-demo"], nargs="?", default="demo")
+    parser.add_argument("mode", choices=["demo", "simulate", "agent", "live-demo", "serve"], nargs="?", default="demo")
     parser.add_argument("--database", default="runtime/demo.sqlite3", help="New SQLite file for a simulation")
     parser.add_argument("--outcome", choices=["covered", "unfilled"], default="covered")
+    parser.add_argument("--port", type=int, default=8765)
     args = parser.parse_args()
-    if args.mode == "demo":
+    if args.mode == "serve":
+        from .server import serve
+        serve(args.database, args.port)
+    elif args.mode == "demo":
         print("OFFLINE FIXTURE CHECK — no model invocation or email delivery")
         print(json.dumps(coverage_plan(load_scenario()), indent=2))
     elif args.mode == "simulate":

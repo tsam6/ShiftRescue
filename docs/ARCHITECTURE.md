@@ -3,7 +3,9 @@
 ## Implemented today
 ```mermaid
 flowchart LR
-    CLI[CLI] --> Workflow[Local simulation workflow]
+    UI[Local coordinator dashboard] --> API[Loopback HTTP API]
+    API --> Workflow[Local simulation workflow]
+    CLI[CLI] --> Workflow
     Workflow --> Store[(SQLite state, booking, outbox, audit)]
     Workflow --> Rules
     CLI --> Rules[Deterministic eligibility checks]
