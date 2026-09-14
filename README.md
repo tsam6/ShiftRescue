@@ -133,3 +133,13 @@ Unreviewed candidates are excluded even when nearby. Qualifications are fixture
 inputs, not AI assessments; the UI approves outreach, not qualification status.
 Distance and prior experience are shown as context. Service-hour categories,
 post-shift retention follow-ups, CRM integration, and live scheduling are not implemented.
+
+## Submission artifacts
+- [Architecture image](submission/architecture.png)
+- [Narrated demo video](submission/ShiftRescue-demo.mp4) (2 minutes 29 seconds)
+- [Project description](submission/DEVPOST.md)
+- [Real Bedrock run evidence](submission/evidence/bedrock-run-state.json)
+
+The video presents saved responses and persisted results from the verified run,
+with synthesized narration. It is not a recording of live volunteer communication.
+Development used an AI coding assistant.

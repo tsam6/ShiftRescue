@@ -10,3 +10,4 @@ dist/
 !.env.example
 runtime/
 .DS_Store
+work/

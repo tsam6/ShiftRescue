@@ -31,3 +31,9 @@ flowchart LR
 ```
 The final architecture diagram must reflect the deployed implementation.
 Booking uniqueness, expiry, role checks, and consent are enforced outside the model.
+
+## Submission diagram
+![Implemented architecture](../submission/architecture.png)
+
+Real Bedrock execution was verified September 14. The local browser replay remains
+separate from the live agent runner; there is no deployed background service.
