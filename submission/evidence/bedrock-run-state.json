@@ -1,0 +1,263 @@
+{
+  "scenario": {
+    "synthetic": true,
+    "organization": "Harbor Community Pantry (fictional)",
+    "shift": {
+      "id": "shift-001",
+      "role": "pantry_distribution",
+      "start": "2026-09-12T09:00:00-04:00",
+      "end": "2026-09-12T12:00:00-04:00",
+      "cancelled_volunteer_id": "v1"
+    },
+    "volunteers": [
+      {
+        "id": "v1",
+        "name": "Alex",
+        "email": "alex@example.org",
+        "roles": [
+          "pantry_distribution"
+        ],
+        "backup_opt_in": true,
+        "availability": [
+          {
+            "start": "2026-09-12T09:00:00-04:00",
+            "end": "2026-09-12T12:00:00-04:00"
+          }
+        ],
+        "commitments": [],
+        "recent_backup_requests": 2,
+        "qualification_review": "approved",
+        "previous_shifts": 1,
+        "distance_miles": 4
+      },
+      {
+        "id": "v2",
+        "name": "Blair",
+        "email": "blair@example.org",
+        "roles": [
+          "pantry_distribution"
+        ],
+        "backup_opt_in": true,
+        "availability": [
+          {
+            "start": "2026-09-12T09:00:00-04:00",
+            "end": "2026-09-12T12:00:00-04:00"
+          }
+        ],
+        "commitments": [],
+        "recent_backup_requests": 0,
+        "qualification_review": "approved",
+        "previous_shifts": 3,
+        "distance_miles": 2
+      },
+      {
+        "id": "v3",
+        "name": "Casey",
+        "email": "casey@example.org",
+        "roles": [
+          "pantry_distribution"
+        ],
+        "backup_opt_in": true,
+        "availability": [
+          {
+            "start": "2026-09-12T09:00:00-04:00",
+            "end": "2026-09-12T12:00:00-04:00"
+          }
+        ],
+        "commitments": [],
+        "recent_backup_requests": 2,
+        "qualification_review": "approved",
+        "previous_shifts": 1,
+        "distance_miles": 4
+      },
+      {
+        "id": "v4",
+        "name": "Drew",
+        "email": "drew@example.org",
+        "roles": [
+          "food_collection"
+        ],
+        "backup_opt_in": true,
+        "availability": [
+          {
+            "start": "2026-09-12T09:00:00-04:00",
+            "end": "2026-09-12T12:00:00-04:00"
+          }
+        ],
+        "commitments": [],
+        "recent_backup_requests": 2,
+        "qualification_review": "approved",
+        "previous_shifts": 1,
+        "distance_miles": 4
+      },
+      {
+        "id": "v5",
+        "name": "Eden",
+        "email": "eden@example.org",
+        "roles": [
+          "pantry_distribution"
+        ],
+        "backup_opt_in": true,
+        "availability": [
+          {
+            "start": "2026-09-12T09:00:00-04:00",
+            "end": "2026-09-12T10:00:00-04:00"
+          }
+        ],
+        "commitments": [],
+        "recent_backup_requests": 2,
+        "qualification_review": "approved",
+        "previous_shifts": 1,
+        "distance_miles": 4
+      },
+      {
+        "id": "v6",
+        "name": "Finley",
+        "email": "finley@example.org",
+        "roles": [
+          "pantry_distribution"
+        ],
+        "backup_opt_in": false,
+        "availability": [
+          {
+            "start": "2026-09-12T09:00:00-04:00",
+            "end": "2026-09-12T12:00:00-04:00"
+          }
+        ],
+        "commitments": [],
+        "recent_backup_requests": 2,
+        "qualification_review": "approved",
+        "previous_shifts": 1,
+        "distance_miles": 4
+      },
+      {
+        "id": "v7",
+        "name": "Gray",
+        "email": "gray@example.org",
+        "roles": [
+          "pantry_distribution"
+        ],
+        "backup_opt_in": true,
+        "availability": [
+          {
+            "start": "2026-09-12T09:00:00-04:00",
+            "end": "2026-09-12T12:00:00-04:00"
+          }
+        ],
+        "commitments": [
+          {
+            "start": "2026-09-12T09:00:00-04:00",
+            "end": "2026-09-12T12:00:00-04:00"
+          }
+        ],
+        "recent_backup_requests": 2,
+        "qualification_review": "approved",
+        "previous_shifts": 1,
+        "distance_miles": 4
+      },
+      {
+        "id": "v8",
+        "name": "Harper",
+        "email": "harper@example.org",
+        "roles": [
+          "pantry_distribution"
+        ],
+        "backup_opt_in": true,
+        "availability": [
+          {
+            "start": "2026-09-12T09:00:00-04:00",
+            "end": "2026-09-12T12:00:00-04:00"
+          }
+        ],
+        "commitments": [],
+        "recent_backup_requests": 0,
+        "qualification_review": "pending",
+        "previous_shifts": 0,
+        "distance_miles": 1
+      }
+    ]
+  },
+  "status": "covered",
+  "approved": true,
+  "offers": [
+    {
+      "volunteer_id": "v2",
+      "status": "declined",
+      "expires": "2026-09-11T18:15:00-04:00",
+      "follow_up_at": "2026-09-11T18:10:00-04:00",
+      "followed_up": false
+    },
+    {
+      "volunteer_id": "v3",
+      "status": "accepted",
+      "expires": "2026-09-11T18:15:00-04:00",
+      "follow_up_at": "2026-09-11T18:10:00-04:00",
+      "followed_up": false
+    }
+  ],
+  "outbox": [
+    {
+      "kind": "coverage_request",
+      "volunteer_id": "v2",
+      "simulated": true,
+      "delivered": false,
+      "body": "Can you cover pantry_distribution from 2026-09-12T09:00:00-04:00 to 2026-09-12T12:00:00-04:00?",
+      "expires": "2026-09-11T18:15:00-04:00"
+    },
+    {
+      "kind": "coverage_request",
+      "volunteer_id": "v3",
+      "simulated": true,
+      "delivered": false,
+      "body": "Can you cover pantry_distribution from 2026-09-12T09:00:00-04:00 to 2026-09-12T12:00:00-04:00?",
+      "expires": "2026-09-11T18:15:00-04:00"
+    },
+    {
+      "kind": "confirmation",
+      "volunteer_id": "v3",
+      "simulated": true,
+      "delivered": false
+    }
+  ],
+  "events": [
+    {
+      "time": "2026-09-11T18:00:00-04:00",
+      "kind": "cancellation_recorded",
+      "detail": "v1"
+    },
+    {
+      "time": "2026-09-11T18:00:00-04:00",
+      "kind": "coordinator_approved",
+      "detail": "Synthetic backup outreach"
+    },
+    {
+      "time": "2026-09-11T18:00:00-04:00",
+      "kind": "request_simulated",
+      "detail": "v2"
+    },
+    {
+      "time": "2026-09-11T18:00:00-04:00",
+      "kind": "declined",
+      "detail": "v2"
+    },
+    {
+      "time": "2026-09-11T18:00:00-04:00",
+      "kind": "request_simulated",
+      "detail": "v3"
+    },
+    {
+      "time": "2026-09-11T18:00:00-04:00",
+      "kind": "coverage_confirmed",
+      "detail": "v3"
+    }
+  ],
+  "booking": {
+    "shift_id": "shift-001",
+    "volunteer_id": "v3"
+  },
+  "last_time": "2026-09-11T18:00:00-04:00",
+  "approved_candidates": [
+    "v2",
+    "v3"
+  ]
+}

@@ -112,8 +112,10 @@ The runner verifies each expected offer and final state, saving model explanatio
 beside the database as `.transcript.json`. A limit of 12 model calls per agent and
 600 output tokens per model response bounds the run; SDK model-loop retries and
 Bedrock client retries are disabled. This is not a dollar-denominated billing cap.
-AWS credits have been verified. The first Bedrock call was blocked by account verification;
-successful live Bedrock execution remains unverified.
+A real Amazon Bedrock run succeeded on September 14, 2026 using Amazon Nova Lite
+through Strands. It created two offers and verified Casey’s accepted booking.
+See [run evidence](submission/evidence/bedrock-transcript.json). Volunteer replies
+and email delivery remain simulated. The browser screen is a separate offline replay.
 
 ## Open the coordinator dashboard
 

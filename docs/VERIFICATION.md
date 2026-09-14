@@ -57,3 +57,13 @@ confirmed coverage with no pending follow-ups. Desktop layout was visually check
 This supersedes the earlier UI-pending status. No model or external email was used.
 Qualification review is a fixture field; service-hour grouping and retention
 follow-ups are not implemented.
+
+## Real Bedrock verification — September 14, 2026
+
+After refreshing expired AWS credentials, the bounded live-demo runner succeeded
+using us.amazon.nova-lite-v1:0 in us-east-1. The real Strands agent called workflow
+tools to create Blair’s offer, advance to Casey after a scripted decline, and
+report the persisted booking after a scripted acceptance. The runner verified
+status covered. Published evidence removes local offer tokens and model thinking
+blocks; raw local artifacts remain in the ignored runtime directory.
+The browser UI remains an offline replay; no real emails were sent.

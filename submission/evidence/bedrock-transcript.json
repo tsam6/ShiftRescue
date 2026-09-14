@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "The coordinator approved synthetic backup outreach. Inspect and advance coverage, then report status.",
+    "response": "The status is now \"seeking_coverage\" with a simulated request sent to Blair. We will wait for Blair's real reply."
+  },
+  {
+    "prompt": "A scripted volunteer decline was recorded by the application. Inspect and advance coverage.",
+    "response": "The status is now \"seeking_coverage\" with a simulated request sent to Casey. We will wait for Casey's real reply."
+  },
+  {
+    "prompt": "An explicit scripted acceptance was recorded by the application. Inspect and report the actual booking.",
+    "response": "The shift is now covered by Casey, who accepted the simulated request."
+  }
+]
