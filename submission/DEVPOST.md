@@ -37,7 +37,7 @@ Python, Strands Agents SDK, Amazon Bedrock, Amazon Nova Lite, SQLite, HTML, CSS,
 ## Submission checklist
 - Public repository above, including README and MIT license.
 - Attach architecture.png.
-- Upload ShiftRescue-demo.mp4 to a supported public or unlisted video host and paste the video URL.
+- Upload ShiftRescue-polished-music.mp4 (or the silent version with your narration) to a supported public or unlisted video host and paste the video URL.
 - Supply your AWS Builder ID (not an AWS account number).
 - Do not use the localhost URL as a public live demo link.
-- Review and submit before September 14, 2026, 5 p.m. Pacific / 8 p.m. Eastern.
+- Confirm the updated video URL and final submission status in Devpost.

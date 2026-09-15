@@ -1,45 +1,35 @@
-# Scope locked — September 8, 2026
+# Scope — September 14, 2026
 
-## Audience and outcome
-One small food pantry with recurring shifts, a roster of approved backups, and
-manual coordinator outreach. Reduce coordination effort and uncovered shifts.
-This does not solve a shortage of willing volunteers. Coordinator conversations describe manual follow-ups, candidate-finding difficulties,
-and qualification review needs. Another email describes after-hours cancellation
-coverage difficulties. No pilot or measured savings are claimed.
+## Audience and problem
+A food pantry coordinator with a roster of approved backup volunteers must check
+eligibility, contact people, follow up, and update coverage after a cancellation.
+Coordinator conversations support this problem; no pilot or measured savings are claimed.
+The project does not solve a shortage of willing volunteers.
 
-## MVP acceptance criteria
-1. Coordinator records a cancellation and reviews eligible backup candidates.
-2. Coordinator authorizes outreach to an approved backup pool.
-3. Agent prepares requests; email adapter sends only within authorized scope.
-4. Declines and timed-out offers advance to another eligible person.
-5. Explicit, authenticated acceptance fills the gap exactly once.
-6. Roster and activity log persist across restarts.
-7. Exhausted candidates produce an actionable escalation.
+## Implemented prototype
+- One fictional organization, one canceled position, and eight fictional volunteers.
+- Qualification review, role, availability, opt-in, cancellation and conflict checks.
+- Coordinator selection and approval of an eligible outreach pool.
+- Sequential simulated offers, one follow-up per offer, expiry and fallback.
+- Explicit simulated acceptance with transactional booking and persistent audit.
+- Escalation when approved candidates are exhausted.
+- Offline browser interface and separate Strands/Bedrock runner.
+- Successful real Bedrock covered-workflow verification on September 14.
 
-## Decisions
-Python + Strands + Amazon Bedrock. One agent with narrowly scoped tools.
-One organization, one uncovered position, full-shift coverage, email only.
-Deterministic eligibility rules and transactional booking; model explains and
-coordinates but cannot waive rules or invent acceptance. Start with a synthetic
-outbox and test replies before connecting a real delivery provider.
-SQLite persistence, a loopback API, and a coordinator interface are implemented.
-Live delivery, deployment, and successful Bedrock execution remain outstanding.
+The cancellation is preloaded in the fixture. The browser is a replay rather than
+a live cancellation intake. Reminders and expiry require workflow advancement.
 
-## Not in the initial version
-SMS, multi-organization accounts, automatic inbox cancellation detection, partial
-shift negotiation, calendar integration, predictive no-show scoring, and payments.
+## Next implementation steps
+Connect the real agent to the browser, add a background worker, authenticated
+volunteer reply channels, and an authorized email adapter. Explore integrations
+with existing volunteer platforms only with organizational approval.
 
-## Schedule
-- Sep 8: local repo, scaffold, roster, demo specification; owner confirms accounts.
-- Sep 9: complete cancellation/request/acceptance flow with test inboxes.
-- Sep 10: declines, offer expiry, duplicate acceptance, no-backup escalation.
-- Sep 11: coordinator interface and synthetic public demo deployment.
-- Sep 12: verification, setup documentation, diagram, description, video script.
-- Sep 13: video and submission; optional AWS build post if ready.
-- Sep 14: buffer and final submission verification.
+## Outside current scope
+Public deployment, CRM migration, live email/SMS, multi-organization accounts,
+service-hour categories, post-shift retention automation, mapping, automatic inbox
+cancellation detection, partial-shift negotiation, and predictive no-show scoring.
 
-## Validation gate — Sep 10
-Use coordinator responses to adjust terminology and operating rules. If no response,
-retain the documented synthetic scenario and clearly disclose lack of a pilot.
-Measure coordinator minutes, time to confirmed coverage, fill rate, and erroneous
-or unnecessary outreach only when there is real evidence to measure.
+## Evaluation plan
+With a willing organization, measure coordinator time, time to confirmed coverage,
+fill rate, and unnecessary outreach. Treat improved retention and reduced staffing
+shortages as hypotheses until demonstrated.

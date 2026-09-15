@@ -1,3 +1,10 @@
+# Current status — September 14, 2026
+
+Real Bedrock covered-workflow execution succeeded; 15 tests pass; the public GitHub
+repository and MIT license are verified. Browser replay, simulated replies and
+persistence are implemented. Live delivery, background scheduling and browser-agent
+integration remain future work. The dated entries below are historical checkpoints.
+
 # Day-one verification — September 8, 2026
 
 Environment: Python 3.14, macOS; Strands Agents 1.55.0.
@@ -67,3 +74,13 @@ report the persisted booking after a scripted acceptance. The runner verified
 status covered. Published evidence removes local offer tokens and model thinking
 blocks; raw local artifacts remain in the ignored runtime directory.
 The browser UI remains an offline replay; no real emails were sent.
+
+## Final submission review — September 14, 2026
+
+- Fresh test run: 15 passed; no submission-blocking workflow defect identified.
+- Isolated wheel build succeeded. Both the JSON fixture and browser HTML are bundled.
+- Unpacked wheel ran its offline CLI successfully from outside the repository.
+- Relative Markdown file links checked: none missing.
+- Polished video decoded successfully: 1:47, 1920×1080, 24 fps; quiet stereo music.
+- Public Devpost text correctly distinguishes the browser replay and Bedrock runner.
+- Owner is replacing the public video; latest hosted video URL is not yet verified.

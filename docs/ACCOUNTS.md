@@ -1,51 +1,28 @@
-# Accounts and publication
+# Submission readiness — September 14, 2026
 
-## Owner action: AWS Builder ID
-Status: owner reports an existing AWS Builder Center account; Builder ID sign-in
-not independently verified. Profile: https://profile.aws.amazon.com/. Account creation requires the owner's identity, email verification, and
-password or chosen identity provider. Record confirmation, not credentials, here.
-Guide: https://docs.aws.amazon.com/signin/latest/userguide/create-builder-id.html
+## Verified
+- Public source repository: https://github.com/tsam6/ShiftRescue
+- MIT license detected by GitHub; About description identifies the license.
+- README, bundled fixture/interface, and setup instructions are present.
+- AWS authentication and a real Strands/Bedrock covered-workflow run succeeded.
+- Model used: `us.amazon.nova-lite-v1:0`, region `us-east-1`.
+- 15 automated tests pass.
+- Architecture image and demo video files are included.
+- Public Devpost page: https://devpost.com/software/shiftrescue
 
-## Bedrock access
-Status: owner believes an AWS Console account exists; Bedrock access remains unverified. Builder ID is separate from AWS
-account credentials. Confirm a region, allowed model ID, and a credential profile
-with model invocation permission. Never paste secret keys into documentation.
+## Owner-managed submission fields
+- Confirm the AWS Builder ID field using the owner's Builder account/profile.
+  Builder ID is not an AWS account number or access key.
+- Upload the chosen demo video to a supported public/unlisted video host and save
+  that URL in Devpost. The polished music and silent versions are both 1:47.
+- Confirm the final saved video and submission status in Devpost.
 
-## Public repository
-Local Git repository is prepared. Remote GitHub publication remains pending;
-no GitHub CLI was found during initial setup. Before submission publish this
-project folder, confirm public visibility, README rendering, MIT license detection,
-and About description. Keep .venv, .env, runtime data and credentials excluded.
+## Optional items
+A hosted live demo, AgentCore deployment, and AWS Builder Center blog post are not
+implemented or claimed. The localhost URL is only for running the project locally.
 
-## Submission checklist
-- [ ] Public code URL and complete setup instructions
-- [ ] MIT license detected and About description mentions MIT
-- [ ] Text description: audience, problem, workflow, honest implementation status
-- [ ] Architecture diagram matching final system
-- [ ] Working demo video <= 5 minutes
-- [ ] AWS Builder ID confirmed
-- [ ] Optional synthetic live demo URL
-- [ ] Optional AWS Builder Center post with Agents for Humans in title
-
-## AWS credit status
-Owner reports receiving hackathon credits. Applied balance, expiry, and eligible
-services have not been verified; AWS billing currently requires sign-in. Do not invoke paid
-models or deploy billable resources without explicit owner approval. Local simulation
-requires no AWS credentials or network services.
-
-## Credit verification — September 9, 2026
-Verified in signed-in AWS Billing console: total remaining $150, comprising $100
-AWS Free Tier credit (expires September 9, 2027) and $50 promotional credit
-(expires October 31, 2026). The $50 credit lists Amazon Bedrock and Bedrock
-AgentCore among applicable services. Displayed usage is $0; billing estimates
-update approximately daily. Browser sign-in is working; local SDK authentication
-and model invocation are still unverified.
-
-## Local authentication — September 9, 2026
-AWS CLI profile `shiftrescue` successfully passed the STS identity check. Temporary
-login also works from the app after adding botocore[crt]. Session is currently a
-root session; use a scoped development identity before routine deployment.
-Bedrock ConverseStream for us.amazon.nova-lite-v1:0 in us-east-1 returned
-AccessDeniedException: account verification in progress (AWS says normally under
-two hours). No model response was returned. Retry after verification clears;
-if still blocked after two hours, AWS directs users to aws-verification@amazon.com.
+## AWS setup for reviewers
+Use your own AWS credential profile and an accessible Bedrock model or inference
+profile. AWS credits can offset costs but are not required to run the application.
+No credentials or real volunteer data are included in this repository. Offline
+replays and the coordinator dashboard do not make AWS calls.
