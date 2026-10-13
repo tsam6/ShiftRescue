@@ -50,6 +50,17 @@ def coverage_plan(scenario):
                              "previous_shifts": volunteer.get("previous_shifts", 0),
                              "distance_miles": volunteer.get("distance_miles")})
     eligible.sort(key=lambda v: (v["recent_backup_requests"], v["id"]))
+    profiles = {}
+    for v in scenario["volunteers"]:
+        p = dict(v.get("profile", {}))
+        p.update(id=v["id"], name=v["name"], roles=v.get("roles", []),
+                 distance_miles=v.get("distance_miles"),
+                 recent_backup_requests=v.get("recent_backup_requests", 0),
+                 backup_opt_in=v.get("backup_opt_in", False),
+                 qualification_review=v.get("qualification_review"),
+                 is_cancelled=v["id"] == scenario["shift"]["cancelled_volunteer_id"])
+        profiles[v["id"]] = p
     return {"synthetic": True, "shift": scenario["shift"], "eligible": eligible,
-            "excluded": excluded, "status": "awaiting_coordinator_review" if eligible else "needs_coordinator",
+            "excluded": excluded, "profiles": profiles,
+            "status": "awaiting_coordinator_review" if eligible else "needs_coordinator",
             "outreach_sent": False}

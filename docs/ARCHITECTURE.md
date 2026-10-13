@@ -5,6 +5,7 @@
 flowchart LR
     UI[Local coordinator dashboard] --> API[Loopback HTTP API]
     API --> Workflow[Local simulation workflow]
+    Auto[Opt-in autonomous follow-up worker] --> Workflow
     CLI[CLI] --> Workflow
     Workflow --> Store[(SQLite state, booking, outbox, audit)]
     Workflow --> Rules
@@ -15,6 +16,12 @@ flowchart LR
     Tool --> Rules
     Tool --> Workflow
 ```
+The autonomous worker is an opt-in background thread in the loopback server. On an
+accelerated replay clock it calls the same transactional `advance` the time buttons
+use, so reminders, offers and bookings stay idempotent and the clock only moves
+forward. It processes nothing before coordinator approval and stops once coverage is
+confirmed or escalated. It is offline and sends no real messages; it is not a
+wall-clock production scheduler.
 
 ## Planned MVP
 ```mermaid
@@ -36,4 +43,6 @@ Booking uniqueness, expiry, role checks, and consent are enforced outside the mo
 ![Implemented architecture](../submission/architecture.png)
 
 Real Bedrock execution was verified September 14. The local browser replay remains
-separate from the live agent runner; there is no deployed background service.
+separate from the live agent runner. Autonomous follow-up processing runs as an
+opt-in offline worker inside the loopback server; there is no deployed, internet-facing
+background service.

@@ -110,6 +110,55 @@ class Workflow:
             self.save(db, state)
         return self.snapshot()
 
+    @staticmethod
+    def next_due(state):
+        """Instant of the next scheduled follow-up/expiry, or None when idle.
+
+        Pure read of persisted state; takes no action. Returns None once the
+        workflow is terminal (booked) or not yet approved, so a background
+        processor never acts after coverage is confirmed or before review.
+        """
+        if state is None or state['booking'] or not state['approved']:
+            return None
+        for offer in state['offers']:
+            if offer['status'] == 'pending':
+                follow = offer.get('follow_up_at', offer['expires'])
+                if not offer.get('followed_up') and instant(follow) < instant(offer['expires']):
+                    return follow
+                return offer['expires']
+        # No pending offer: an untried approved candidate can be invited now.
+        if state['status'] == 'seeking_coverage':
+            attempted = {o['volunteer_id'] for o in state['offers']}
+            eligible = coverage_plan(state['scenario'])['eligible']
+            approved = state.get('approved_candidates', [v['id'] for v in eligible])
+            if any(v['id'] in approved and v['id'] not in attempted for v in eligible):
+                return state['last_time']
+        return None
+
+    def run_due(self, now):
+        """Advance autonomously through every action due at or before ``now``.
+
+        Reuses the transactional ``advance`` under BEGIN IMMEDIATE, so reminders,
+        offers and bookings stay idempotent and race-safe. The clock only ever
+        moves forward (``check_time``) and processing halts the moment the
+        workflow is booked or has no further due action. A coordinator need not
+        press the time buttons for eligible pending offers to be processed.
+        """
+        processed = 0
+        while True:
+            with self.transaction() as (db, state):
+                due = self.next_due(state)
+                if due is None or instant(due) > instant(now):
+                    break
+                step = max(instant(due), instant(state['last_time'])).isoformat()
+                self.check_time(state, now=step)
+                self.advance(state, step)
+                self.save(db, state)
+                processed += 1
+            if processed > 64:  # defensive: bounded, deterministic fixtures
+                break
+        return self.snapshot()
+
     def reply(self, token, decision, now, dispatch=True):
         if decision not in ('accept', 'decline'):
             raise ValueError('Reply must be accept or decline')

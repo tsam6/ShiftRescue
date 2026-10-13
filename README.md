@@ -46,7 +46,8 @@ instead of installing this lock file.
 ### Try the browser flow
 1. Review Blair and Casey; expand exclusions to see why other candidates are excluded.
 2. Approve the selected backup pool. Blair receives a simulated invitation.
-3. Click **+10 minutes** to process a follow-up reminder.
+3. Click **+10 minutes** to process a follow-up reminder — or toggle **Autonomous
+   follow-ups** to let the local worker advance reminders and expiry on its own.
 4. Decline as Blair, then accept as Casey.
 5. Review the confirmed booking and activity trail.
 
@@ -104,11 +105,16 @@ checks cover qualification review, role, full-shift availability, backup opt-in,
 cancellation, and overlapping commitments. Outreach favors fewer recent backup
 requests. Distance and experience are contextual fields, not a map or travel estimate.
 
-Reminders and expiry run when the workflow advances; there is no background worker.
-The browser approves outreach to already-reviewed candidates, not qualification
-status itself. Offer tokens are local test capabilities, not production authentication.
-Real email delivery, CRM integration, live reply endpoints, public hosting,
-service-hour grouping, and post-shift retention follow-ups are not implemented.
+Reminders and expiry run when the workflow advances. The coordinator can advance the
+replay clock manually, or enable **Autonomous follow-ups** in the dashboard to let a
+local background worker process reminders, expiry, and the next eligible offer on an
+accelerated replay clock without clicking the time buttons. It stops once coverage is
+confirmed or escalated, and never acts before coordinator approval. This runs offline
+against the fictional fixture; it is not a wall-clock production scheduler and sends no
+real messages. The browser approves outreach to already-reviewed candidates, not
+qualification status itself. Offer tokens are local test capabilities, not production
+authentication. Real email delivery, CRM integration, live reply endpoints, public
+hosting, service-hour grouping, and post-shift retention follow-ups are not implemented.
 No pilot or measured time savings are claimed.
 
 ## More information
