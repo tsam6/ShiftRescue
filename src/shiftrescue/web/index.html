@@ -1,38 +1,277 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ShiftRescue · Coverage desk</title>
 <style>
-:root{--ink:#172f2c;--green:#17634d;--muted:#62746e;--line:#dce5df;--paper:#f4f6f1}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}header{background:var(--ink);color:white;padding:20px 5%;display:flex;justify-content:space-between;align-items:center}.brand{font-size:23px;font-weight:750;letter-spacing:-1px}.brand span{color:#bcdf91}header small{color:#c0cec8}.wrap{max-width:1260px;margin:auto;padding:32px 30px}.top{display:flex;justify-content:space-between;gap:16px;align-items:center}h1{font-size:34px;letter-spacing:-1px;margin:4px 0 8px}h2{font-size:19px;margin:0 0 6px}h3{margin:0;font-size:16px}p{margin:6px 0 14px}.muted{color:var(--muted)}.eyebrow{font-size:11px;letter-spacing:1.8px;font-weight:750;text-transform:uppercase}.notice{background:#e8eedf;border:1px solid #d5dfc7;padding:10px 16px;border-radius:10px;margin:20px 0}.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:22px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:20px}.shift{border-left:5px solid var(--green)}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.badge{display:inline-block;background:#eef3ef;color:#3e6155;border-radius:30px;padding:5px 10px;font-size:12px;font-weight:650}.amber{background:#fff0d6;color:#8a5912}.good{background:#ddefdf;color:#235b37}.candidate{padding:16px 0;border-bottom:1px solid var(--line)}.candidate label{display:flex;align-items:center;gap:12px;cursor:pointer}.candidate input{width:19px;height:19px;accent-color:var(--green)}.reason{margin:8px 0 0 31px;font-size:13px;color:var(--muted)}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-left:31px;margin-top:8px}.chips span{font-size:11px;background:#f0f5f0;padding:3px 7px;border-radius:5px}button{border:1px solid #ccd7cf;background:white;color:var(--ink);border-radius:8px;padding:10px 14px;font:inherit;font-weight:600;cursor:pointer}button:hover{filter:brightness(.95)}button:disabled{opacity:.45;cursor:not-allowed}.primary{background:var(--green);color:white;border-color:var(--green);width:100%;margin-top:18px}.actions{display:flex;gap:8px;flex-wrap:wrap}details{margin-top:20px}summary{cursor:pointer;font-weight:600}.excluded{font-size:13px;padding:10px 0;border-bottom:1px solid var(--line)}.message{border:1px solid var(--line);background:#f8faf6;border-radius:10px;padding:14px;margin:12px 0}.message p{font-size:13px}.event{border-left:2px solid #dce6dc;padding:0 0 16px 16px;font-size:13px}.event small{color:var(--muted);display:block}.empty{padding:20px 0;color:var(--muted)}#error{color:#9a342b}footer{font-size:12px;color:var(--muted);padding:10px 0 25px}@media(max-width:850px){.layout{grid-template-columns:1fr}.wrap{padding:20px 16px}.top{align-items:start}h1{font-size:28px}.card{padding:18px}header small{display:none}}
+:root{
+  --bg:#f7f8fa;--surface:#ffffff;--ink:#1b2733;--muted:#687786;--faint:#8b97a3;
+  --line:#e5e9ee;--line-strong:#d4dae1;
+  --accent:#1f6f5c;--accent-ink:#13503f;--accent-soft:#e8f2ee;
+  --amber:#9a6a12;--amber-soft:#fdf3e1;--danger:#b23b2e;--danger-soft:#fbeceb;
+  --ok:#1f7a4d;--ok-soft:#e7f3ec;--focus:#2f6f8f;
+  --radius:8px;--shadow:0 1px 2px rgba(16,24,40,.04),0 1px 3px rgba(16,24,40,.06);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+header{background:var(--surface);border-bottom:1px solid var(--line);
+  height:56px;position:sticky;top:0;z-index:5}
+.header-inner{max-width:1180px;margin:auto;height:100%;padding:0 24px;display:flex;align-items:center;gap:16px}
+.brand{font-size:16px;font-weight:700;letter-spacing:-.2px;color:var(--ink)}
+.brand span{color:var(--accent)}
+.header-sep{width:1px;height:22px;background:var(--line)}
+header .env{font-size:12px;color:var(--faint)}
+header .spacer{flex:1}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line-strong);color:var(--muted);background:var(--surface)}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--faint)}
+.pill.amber{background:var(--amber-soft);border-color:#f0dcb4;color:var(--amber)}.pill.amber .dot{background:var(--amber)}
+.pill.ok{background:var(--ok-soft);border-color:#bfe0cb;color:var(--ok)}.pill.ok .dot{background:var(--ok)}
+.pill.danger{background:var(--danger-soft);border-color:#eecac6;color:var(--danger)}.pill.danger .dot{background:var(--danger)}
+
+.wrap{max-width:1180px;margin:auto;padding:24px}
+.pagehead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:4px}
+.pagehead h1{font-size:20px;font-weight:650;letter-spacing:-.3px;margin:0}
+.pagehead p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.disclaimer{font-size:12px;color:var(--faint);margin:14px 0 18px;padding-left:10px;border-left:2px solid var(--line-strong)}
+
+.layout{display:grid;grid-template-columns:1.6fr 1fr;gap:20px;align-items:start}
+@media(min-width:861px){aside{position:sticky;top:72px}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);margin-bottom:16px;overflow:hidden}
+.card>.hd{display:flex;justify-content:space-between;align-items:center;gap:10px;
+  padding:12px 16px;border-bottom:1px solid var(--line)}
+.card>.hd h2{font-size:13px;font-weight:650;margin:0;letter-spacing:.1px}
+.card>.hd .sub{font-size:12px;color:var(--faint)}
+.card>.bd{padding:16px}
+.card.flush>.bd{padding:0}
+
+h3{margin:0;font-size:14px;font-weight:600}
+p{margin:0 0 10px}.muted{color:var(--muted)}
+.eyebrow{font-size:11px;letter-spacing:.12em;font-weight:700;text-transform:uppercase;color:var(--faint)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+
+/* shift summary */
+#shift .bd{display:flex;flex-direction:column;gap:4px}
+#shift .title{font-size:17px;font-weight:650;letter-spacing:-.2px}
+#shift .meta{font-size:13px;color:var(--muted)}
+#shift .outcome{margin-top:8px;font-size:13px}
+
+/* candidates */
+.candidate{padding:12px 16px;border-bottom:1px solid var(--line)}
+.candidate:last-child{border-bottom:0}
+.candidate label{display:flex;align-items:center;gap:10px;cursor:pointer}
+.candidate input{width:16px;height:16px;accent-color:var(--accent)}
+.candidate .tag{font-size:11px;font-weight:600;color:var(--muted);background:transparent;
+  border:1px solid var(--line-strong);padding:1px 7px;border-radius:4px}
+.reason{margin:6px 0 0 26px;font-size:12.5px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 0 26px}
+.chips span{font-size:11px;color:var(--muted);background:var(--bg);border:1px solid var(--line);padding:2px 7px;border-radius:4px}
+
+button{border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);
+  border-radius:6px;padding:7px 12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:background .12s,border-color .12s}
+button:hover:not(:disabled){background:var(--bg);border-color:var(--muted)}
+button:active:not(:disabled){background:#eef1f4}
+button:disabled{opacity:.5;cursor:not-allowed}
+button:focus-visible{outline:2px solid var(--focus);outline-offset:1px}
+.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.primary:hover:not(:disabled){background:var(--accent-ink);border-color:var(--accent-ink)}
+.btn-sm{padding:5px 10px;font-size:12.5px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.footer-note{font-size:12px;color:var(--muted);margin-top:10px}
+
+details{border-top:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:12.5px;color:var(--muted);padding:11px 16px;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"▸ ";color:var(--faint)}
+details[open] summary::before{content:"▾ "}
+.excluded{font-size:12.5px;padding:9px 16px;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:84px 1fr;gap:12px;align-items:baseline}
+.excluded b{font-weight:600}
+.excluded .why{color:var(--muted)}
+
+.message{border:1px solid var(--line);border-radius:6px;background:var(--surface);padding:12px;margin:0 0 10px}
+.message:last-child{margin-bottom:0}
+.message .row{margin-bottom:6px}
+.message p{font-size:12.5px;margin:4px 0}
+.message .to{font-weight:600;font-size:13px}
+.tiny{font-size:11px;color:var(--faint)}
+
+.event{position:relative;padding:0 0 14px 18px;font-size:12.5px}
+.event::before{content:"";position:absolute;left:3px;top:4px;width:7px;height:7px;border-radius:50%;background:var(--line-strong)}
+.event:not(:last-child)::after{content:"";position:absolute;left:6px;top:11px;bottom:0;width:1px;background:var(--line)}
+.event b{font-weight:600}.event small{color:var(--faint);display:block;margin-top:1px}
+
+.empty{color:var(--faint);font-size:13px}
+.toggle{display:flex;align-items:flex-start;gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);cursor:pointer}
+.toggle input{width:16px;height:16px;margin-top:2px;accent-color:var(--accent)}
+.toggle .t{font-size:13px;font-weight:600}.toggle .d{font-size:12px;color:var(--muted);font-weight:400}
+#error{color:var(--danger);background:var(--danger-soft);border:1px solid #eecac6;border-radius:6px;
+  padding:9px 12px;font-size:13px;margin-bottom:14px;display:none}
+#error.show{display:block}
+footer{font-size:12px;color:var(--faint);padding:16px 0 32px;max-width:1180px;margin:auto;border-top:1px solid var(--line);margin-top:8px}
+@media(max-width:860px){.layout{grid-template-columns:1fr}.wrap{padding:16px}.header-inner{padding:0 16px}}
+
+/* clickable names */
+.vname{background:none;border:0;padding:0;margin:0;font:inherit;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;text-align:left;border-bottom:1px dashed var(--line-strong)}
+.vname:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.vname:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:2px}
+.excluded .vname{font-weight:600}
+
+/* detail drawer */
+#scrim{position:fixed;inset:0;background:rgba(16,24,40,.38);opacity:0;pointer-events:none;transition:opacity .18s;z-index:40}
+#scrim.open{opacity:1;pointer-events:auto}
+#drawer{position:fixed;top:0;right:0;height:100%;width:min(440px,92vw);background:var(--surface);
+  border-left:1px solid var(--line);box-shadow:-8px 0 28px rgba(16,24,40,.12);
+  transform:translateX(100%);transition:transform .22s cubic-bezier(.4,0,.2,1);z-index:41;display:flex;flex-direction:column}
+#drawer.open{transform:translateX(0)}
+.dw-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.dw-hd .nm{font-size:18px;font-weight:650;letter-spacing:-.2px}
+.dw-hd .rl{font-size:12.5px;color:var(--muted);margin-top:2px}
+.dw-x{border:0;background:none;font-size:20px;line-height:1;color:var(--faint);cursor:pointer;padding:2px 6px}
+.dw-x:hover{color:var(--ink)}
+.dw-bd{padding:18px 20px;overflow-y:auto;flex:1}
+.rel{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;border:1px solid var(--line-strong)}
+.rel.high{background:var(--ok-soft);color:var(--ok);border-color:#bfe0cb}
+.rel.mid{background:var(--amber-soft);color:var(--amber);border-color:#f0dcb4}
+.rel.low{background:var(--danger-soft);color:var(--danger);border-color:#eecac6}
+.rel.none{color:var(--muted)}
+.statgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:16px 0}
+.stat{border:1px solid var(--line);border-radius:7px;padding:10px 12px;background:var(--bg)}
+.stat .n{font-size:20px;font-weight:650;letter-spacing:-.5px}
+.stat .n.warn{color:var(--amber)}.stat .n.bad{color:var(--danger)}
+.stat .l{font-size:11px;color:var(--muted);margin-top:1px}
+.kv{display:grid;grid-template-columns:120px 1fr;gap:4px 12px;font-size:13px;margin:14px 0}
+.kv dt{color:var(--muted)}.kv dd{margin:0}
+.dw-note{font-size:13px;line-height:1.5;background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:6px;padding:11px 13px;margin:14px 0;color:var(--ink)}
+.sec-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--faint);margin:18px 0 10px}
+.hist{position:relative}
+.hrow{position:relative;padding:0 0 16px 20px;font-size:13px}
+.hrow::before{content:"";position:absolute;left:4px;top:5px;width:9px;height:9px;border-radius:50%;border:2px solid var(--surface);transform:translateX(-50%);box-sizing:content-box;z-index:1}
+.hrow.completed::before{background:var(--ok)}.hrow.cancelled::before{background:var(--amber)}.hrow.no_show::before{background:var(--danger)}
+.hrow:not(:last-child)::after{content:"";position:absolute;left:4px;top:5px;height:100%;width:2px;background:var(--line);transform:translateX(-50%)}
+.hrow .hd2{display:flex;justify-content:space-between;gap:8px}
+.hrow .oc{font-size:11px;font-weight:600;text-transform:capitalize}
+.hrow.completed .oc{color:var(--ok)}.hrow.cancelled .oc{color:var(--amber)}.hrow.no_show .oc{color:var(--danger)}
+.hrow .dt{color:var(--muted);font-size:12.5px}
+.hrow .de{color:var(--muted);font-size:12px;margin-top:1px}
+.dw-reasons{margin:4px 0 0;padding:0;list-style:none;font-size:12.5px}
+.dw-reasons li{padding:4px 0 4px 18px;position:relative;color:var(--muted)}
+.dw-reasons li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:700}
+.dw-reasons li.no::before{content:"✕";color:var(--danger)}
+/* hours & scheduling pattern */
+.hours-head{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;margin-bottom:6px}
+.hours-head .big{font-size:15px;font-weight:650}
+.hbar{height:7px;border-radius:4px;background:var(--line);overflow:hidden}
+.hbar>span{display:block;height:100%;background:var(--accent);border-radius:4px}
+.hbar>span.over{background:var(--ok)}
+.hours-sub{font-size:12px;color:var(--muted);margin-top:6px}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;border:1px solid var(--line-strong);color:var(--muted);background:var(--surface)}
+.chip .dot{width:7px;height:7px;border-radius:50%;background:var(--faint)}
+.chip.high{background:var(--ok-soft);color:var(--ok);border-color:#bfe0cb}.chip.high .dot{background:var(--ok)}
+.chip.medium{background:var(--amber-soft);color:var(--amber);border-color:#f0dcb4}.chip.medium .dot{background:var(--amber)}
+.chip.low{background:var(--danger-soft);color:var(--danger);border-color:#eecac6}.chip.low .dot{background:var(--danger)}
+.chip.needs{background:var(--accent-soft);color:var(--accent-ink);border-color:#cfe5dc}.chip.needs .dot{background:var(--accent)}
 </style></head><body>
-<header><div class="brand">Shift<span>Rescue</span></div><small>Volunteer coordination, with room to breathe.</small><span class="badge">Local prototype</span></header>
-<main class="wrap"><div class="top"><div><div class="eyebrow muted">Coverage desk</div><h1>One open shift. A clear next step.</h1><p class="muted">Review suitable backups, approve outreach, and keep follow-ups on track.</p></div><button id="new">New demo</button></div>
-<div class="notice">Fictional pantry & volunteers · Simulated messages · No emails sent or AI calls made from this screen.</div>
-<div id="error" role="alert"></div><div class="layout"><section>
-<div class="card shift" id="shift"></div>
-<div class="card"><div class="row"><h2>Review candidates</h2><span class="badge" id="count"></span></div><p class="muted">Only reviewed, qualified, available volunteers can receive an invitation. Select the backup pool you approve.</p><div id="candidates"></div><button class="primary" id="approve">Approve selected backups & start outreach</button><p id="approvalNote" class="muted" style="font-size:12px;margin-top:10px"></p><details><summary id="excludedTitle"></summary><div id="excluded"></div></details></div>
-<div class="card"><h2>Activity trail</h2><p class="muted">Recorded actions, including approval and follow-ups.</p><div id="events"></div></div>
-</section><aside><div class="card"><div class="eyebrow muted">Follow-up desk</div><h2 style="margin-top:8px">Nothing left to remember</h2><div id="followup"></div><div class="actions"><button data-minutes="5">+5 minutes</button><button data-minutes="10">+10 minutes</button><button data-minutes="15">+15 minutes</button></div><p class="muted" style="font-size:12px;margin-top:12px">Replay clock: reminders at 10 minutes; unanswered offers expire at 15. Advance time to demonstrate automation.</p></div>
-<div class="card"><h2>Simulated volunteer inbox</h2><p class="muted">Use these controls to act as the invited volunteer. Acceptance is never inferred.</p><div id="inbox"></div></div>
-<div class="card"><h2>Message log</h2><div id="messages"></div></div></aside></div>
-<footer>Prototype informed by coordinator conversations. No Better Impact or Golden integration. Distances and experience are fictional context, not verified travel estimates.</footer></main>
+<header><div class="header-inner"><div class="brand">Shift<span>Rescue</span></div><div class="header-sep"></div><span class="env">Coverage desk</span><div class="spacer"></div><span class="pill" id="statusPill"><span class="dot"></span><span id="statusText">—</span></span><button class="btn-sm" id="new">Reset scenario</button></div></header>
+<main class="wrap">
+<div class="pagehead"><div><h1>Shift coverage</h1><p>Review eligible backups, approve outreach, and track follow-ups to a confirmed booking.</p></div></div>
+<div class="disclaimer">Fictional pantry and volunteers · messages are simulated and never delivered · no AI model is called from this screen.</div>
+<div id="error" role="alert"></div>
+<div class="layout">
+<section>
+  <div class="card" id="shift"><div class="hd"><h2>Open shift</h2></div><div class="bd" id="shiftBody"></div></div>
+  <div class="card flush"><div class="hd"><h2>Candidates</h2><span class="sub" id="count"></span></div><div class="bd" style="padding-bottom:12px"><p class="muted" style="margin:0">Only reviewed, qualified, available volunteers can be invited. Select the pool you approve.</p></div><div id="candidates"></div><div class="bd"><button class="primary" id="approve" style="width:100%">Approve selected & start outreach</button><p id="approvalNote" class="footer-note"></p></div><details><summary id="excludedTitle"></summary><div id="excluded"></div></details></div>
+  <div class="card flush"><div class="hd"><h2>Activity log</h2><span class="sub">Audited actions</span></div><div class="bd" id="events"></div></div>
+</section>
+<aside>
+  <div class="card"><div class="hd"><h2>Follow-up desk</h2></div><div class="bd"><div id="followup"></div><div class="actions"><button class="btn-sm" data-minutes="5">+5 min</button><button class="btn-sm" data-minutes="10">+10 min</button><button class="btn-sm" data-minutes="15">+15 min</button></div><label class="toggle"><input type="checkbox" id="auto"><span><span class="t">Autonomous follow-ups</span><br><span class="d">Process reminders and expiry automatically — no clicking required.</span></span></label><p id="autoStatus" class="footer-note"></p></div></div>
+  <div class="card"><div class="hd"><h2>Volunteer inbox</h2><span class="sub">Simulated</span></div><div class="bd"><p class="muted" style="margin:0 0 10px">Act as the invited volunteer. Acceptance is never inferred from silence.</p><div id="inbox"></div></div></div>
+  <div class="card flush"><div class="hd"><h2>Message log</h2></div><div class="bd" id="messages"></div></div>
+</aside>
+</div>
+</main>
+<footer>Informed by coordinator conversations. No Better Impact or Golden integration. Distances and experience are fictional context, not verified travel estimates.</footer>
+<div id="scrim"></div>
+<aside id="drawer" role="dialog" aria-modal="true" aria-labelledby="dwName"><div class="dw-hd"><div><div class="nm" id="dwName"></div><div class="rl" id="dwRole"></div></div><button class="dw-x" id="dwClose" aria-label="Close">×</button></div><div class="dw-bd" id="dwBody"></div></aside>
 <script>
 const session='__SESSION__';let current,busy=false;
 const $=id=>document.getElementById(id);const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const time=s=>new Date(s).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'});
-const labels={awaiting_review:'Awaiting your review',seeking_coverage:'Finding coverage',covered:'Coverage confirmed',needs_coordinator:'Needs your attention'};
+const labels={awaiting_review:'Awaiting review',seeking_coverage:'Seeking coverage',covered:'Covered',needs_coordinator:'Needs attention'};
+const pillClass={awaiting_review:'amber',seeking_coverage:'amber',covered:'ok',needs_coordinator:'danger'};
 const names=id=>current.state.scenario.volunteers.find(v=>v.id===id)?.name||id;
 function render(data){current=data;const s=data.state,p=data.plan;const active=s.offers.find(o=>o.status==='pending');
-$('shift').innerHTML=`<div class="row"><div class="eyebrow muted">Harbor Community Pantry · Fictional</div><span class="badge ${s.status==='covered'?'good':'amber'}">${labels[s.status]}</span></div><h2 style="font-size:25px;margin-top:12px">Pantry distribution</h2><p>Saturday, September 12 · 9 a.m.–noon · Replay scenario</p><div class="muted">${s.booking?'Replacement confirmed: <strong>'+escape(names(s.booking.volunteer_id))+'</strong>':'Alex canceled. One position needs a replacement.'}</div>`;
+const pc=pillClass[s.status]||'';
+$('statusPill').className='pill '+pc;$('statusText').textContent=labels[s.status]||s.status;
+$('shiftBody').innerHTML=`<div class="title">Pantry distribution</div><div class="meta">Harbor Community Pantry · Saturday, September 12 · 9:00 a.m.–noon ET</div><div class="outcome">${s.booking?'Replacement confirmed: <button type="button" class="vname" data-vid="'+escape(s.booking.volunteer_id)+'">'+escape(names(s.booking.volunteer_id))+'</button>':'<span class="muted"><button type="button" class="vname" data-vid="'+escape(s.scenario.shift.cancelled_volunteer_id)+'">'+escape(names(s.scenario.shift.cancelled_volunteer_id))+'</button> canceled. One position needs a replacement.</span>'}</div>`;
 $('count').textContent=p.eligible.length+' eligible';
-$('candidates').innerHTML=p.eligible.map(v=>`<div class="candidate"><label><input type="checkbox" value="${escape(v.id)}" ${!s.approved||s.approved_candidates?.includes(v.id)?'checked':''} ${s.approved?'disabled':''}><h3>${escape(v.name)}</h3><span class="badge">Reviewed</span></label><div class="reason">${v.previous_shifts} previous shifts · ${v.distance_miles} miles away · ${v.recent_backup_requests} recent backup requests</div><div class="chips">${v.reasons.map(r=>'<span>'+escape(r)+'</span>').join('')}</div></div>`).join('');
-$('approve').disabled=s.approved||!p.eligible.length;$('approvalNote').textContent=s.approved?'Approval recorded. Outreach is restricted to your selected pool.':'Candidates awaiting qualification review remain excluded—even if they live nearby.';
-$('excludedTitle').textContent=p.excluded.length+' people excluded · view reasons';$('excluded').innerHTML=p.excluded.map(v=>`<div class="excluded"><strong>${escape(v.name)}</strong><br>${v.reasons.map(escape).join(' · ')}</div>`).join('');
-$('followup').innerHTML=active?`<p>Waiting for <strong>${escape(names(active.volunteer_id))}</strong></p><p class="badge ${active.followed_up?'good':'amber'}">${active.followed_up?'Reminder simulated':'Follow-up scheduled for '+time(active.follow_up_at)}</p><p class="muted">Offer expires at ${time(active.expires)}.</p>`:`<p class="empty">${s.status==='covered'?'Shift covered. No follow-ups pending.':s.status==='needs_coordinator'?'No approved backups remain. The coordinator needs to arrange another option.':'Approve candidates to start the follow-up queue.'}</p>`;
-$('followup').innerHTML+=`<p class="muted">Replay time: ${time(s.last_time)} ET</p>`;
-$('inbox').innerHTML=active?`<div class="message"><strong>To ${escape(names(active.volunteer_id))}</strong><p>Can you cover pantry distribution on September 12, 9 a.m.–noon?</p><div class="actions"><button id="accept">Accept shift</button><button id="decline">Decline</button></div></div>`:'<p class="empty">No active invitation.</p>';
+$('candidates').innerHTML=p.eligible.map(v=>`<div class="candidate"><label><input type="checkbox" value="${escape(v.id)}" ${!s.approved||s.approved_candidates?.includes(v.id)?'checked':''} ${s.approved?'disabled':''}><button type="button" class="vname" data-vid="${escape(v.id)}">${escape(v.name)}</button><span class="tag">Reviewed</span></label><div class="reason">${v.previous_shifts} prior shifts · ${v.distance_miles} mi · ${v.recent_backup_requests} recent requests</div><div class="chips">${v.reasons.map(r=>'<span>'+escape(r)+'</span>').join('')}</div></div>`).join('');
+$('approve').disabled=s.approved||!p.eligible.length;$('approve').textContent=s.approved?'Outreach approved':'Approve selected & start outreach';
+$('approvalNote').textContent=s.approved?'Approval recorded. Outreach is restricted to your selected pool.':'Candidates awaiting qualification review stay excluded — even if they live nearby.';
+$('excludedTitle').textContent=p.excluded.length+' excluded — view reasons';$('excluded').innerHTML=p.excluded.map(v=>`<div class="excluded"><button type="button" class="vname" data-vid="${escape(v.id)}">${escape(v.name)}</button><span class="why">${v.reasons.map(escape).join(' · ')}</span></div>`).join('');
+$('followup').innerHTML=active?`<div class="row" style="margin-bottom:8px"><span>Waiting on <strong>${escape(names(active.volunteer_id))}</strong></span><span class="pill ${active.followed_up?'ok':'amber'}"><span class="dot"></span>${active.followed_up?'Reminder sent':'Reminder at '+time(active.follow_up_at)}</span></div><p class="muted" style="margin:0 0 10px">Offer expires at ${time(active.expires)}.</p>`:`<p class="empty" style="margin:0 0 10px">${s.status==='covered'?'Shift covered. No follow-ups pending.':s.status==='needs_coordinator'?'No approved backups remain. Arrange another option.':'Approve candidates to begin outreach.'}</p>`;
+$('followup').innerHTML+=`<p class="footer-note" style="margin:0">Replay clock: <strong>${time(s.last_time)} ET</strong> · reminders at 10 min, offers expire at 15.</p>`;
+$('auto').checked=!!data.auto;$('auto').disabled=s.status==='covered'||s.status==='needs_coordinator';
+$('autoStatus').textContent=data.auto?(data.auto_idle?'On · nothing due right now.':'On · processing follow-ups…'):'Off · advance time manually above.';
+$('inbox').innerHTML=active?`<div class="message"><div class="to">To ${escape(names(active.volunteer_id))}</div><p>Can you cover pantry distribution on September 12, 9:00 a.m.–noon?</p><div class="actions"><button class="btn-sm primary" id="accept">Accept</button><button class="btn-sm" id="decline">Decline</button></div></div>`:'<p class="empty" style="margin:0">No active invitation.</p>';
 if(active){$('accept').onclick=()=>act('reply',{token:active.token,decision:'accept'});$('decline').onclick=()=>act('reply',{token:active.token,decision:'decline'});}
-$('messages').innerHTML=s.outbox.length?s.outbox.map(m=>`<div class="message"><div class="row"><strong>${escape(m.kind.replaceAll('_',' '))}</strong><span class="badge">Simulated</span></div><p>To ${escape(names(m.volunteer_id))}</p>${m.body?'<p>'+escape(m.body)+'</p>':''}<small class="muted">Not delivered externally</small></div>`).join(''):'<p class="empty">No messages prepared.</p>';
+$('messages').innerHTML=s.outbox.length?s.outbox.map((m,i)=>`<div class="message" style="${i?'margin-top:0':''}"><div class="row"><span class="to">${escape(m.kind.replaceAll('_',' '))}</span><span class="pill"><span class="dot"></span>Simulated</span></div><p class="muted" style="margin:0 0 4px">To ${escape(names(m.volunteer_id))}</p>${m.body?'<p>'+escape(m.body)+'</p>':''}<span class="tiny">Not delivered externally</span></div>`).join(''):'<p class="empty" style="margin:0">No messages prepared.</p>';
 const ev={cancellation_recorded:'Cancellation recorded',coordinator_approved:'Coordinator approved outreach',request_simulated:'Invitation simulated',follow_up_simulated:'Follow-up simulated',declined:'Volunteer declined',offer_expired:'Offer expired',coverage_confirmed:'Coverage confirmed',escalated:'Escalated to coordinator',reply_ignored:'Stale or invalid reply ignored'};
-$('events').innerHTML=[...s.events].reverse().map(e=>`<div class="event"><strong>${escape(ev[e.kind]||e.kind)}</strong> · ${escape(names(e.detail))}<small>${time(e.time)} ET</small></div>`).join('');
+$('events').innerHTML=[...s.events].reverse().map(e=>`<div class="event"><b>${escape(ev[e.kind]||e.kind)}</b> · ${escape(names(e.detail))}<small>${time(e.time)} ET</small></div>`).join('');
 }
-async function act(action,payload={}){if(busy)return;busy=true;$('error').textContent='';try{const r=await fetch('/api/'+action,{method:'POST',headers:{'Content-Type':'application/json','X-Demo-Session':session},body:JSON.stringify(payload)});const d=await r.json();if(!r.ok)throw Error(d.error);render(d);}catch(e){$('error').textContent=e.message;}finally{busy=false}}
-$('approve').onclick=()=>act('approve',{candidates:[...document.querySelectorAll('#candidates input:checked')].map(e=>e.value)});$('new').onclick=()=>act('new');document.querySelectorAll('[data-minutes]').forEach(b=>b.onclick=()=>act('time',{minutes:Number(b.dataset.minutes)}));fetch('/api/state').then(r=>r.json()).then(render).catch(e=>$('error').textContent='Could not load the demo: '+e.message);
+const outcomeLabel={completed:'Completed',cancelled:'Cancelled',no_show:'No-show'};
+const fmtDate=d=>d?new Date(d+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):'—';
+function relBand(pct){if(pct==null)return['none','No history yet'];if(pct>=90)return['high','Highly reliable'];if(pct>=75)return['mid','Generally reliable'];return['low','Mixed record'];}
+function openDrawer(id){const p=current.plan.profiles[id];if(!p)return;
+  const [band,bandText]=relBand(p.reliability_pct);
+  $('dwName').textContent=p.name;
+  $('dwRole').textContent=(p.roles||[]).map(r=>r.replaceAll('_',' ')).join(', ')+(p.distance_miles!=null?' · '+p.distance_miles+' mi away':'');
+  const reasons=[];
+  reasons.push([p.qualification_review==='approved','Qualification reviewed'+(p.qualification_review==='approved'?'':' — pending')]);
+  reasons.push([!!p.backup_opt_in,p.backup_opt_in?'Opted in to backup requests':'Not opted in to backup requests']);
+  if(p.is_cancelled)reasons.push([false,'Cancelled this shift']);
+  const stats=`<div class="statgrid">
+    <div class="stat"><div class="n">${p.shifts_completed??'—'}</div><div class="l">Completed</div></div>
+    <div class="stat"><div class="n ${p.shifts_cancelled?'warn':''}">${p.shifts_cancelled??'—'}</div><div class="l">Cancelled</div></div>
+    <div class="stat"><div class="n ${p.no_shows?'bad':''}">${p.no_shows??'—'}</div><div class="l">No-shows</div></div></div>`;
+  const kv=`<dl class="kv">
+    <dt>Reliability</dt><dd>${p.reliability_pct!=null?p.reliability_pct+'% of '+p.total_assignments+' assignments':'No completed assignments yet'}</dd>
+    <dt>Volunteer since</dt><dd>${fmtDate(p.joined)}</dd>
+    <dt>Last active</dt><dd>${p.last_active?fmtDate(p.last_active):'Never'}</dd>
+    <dt>Contact</dt><dd>${escape(p.phone||'—')} · prefers ${escape(p.preferred_contact||'—')}</dd>
+    <dt>Recent asks</dt><dd>${p.recent_backup_requests} backup request${p.recent_backup_requests===1?'':'s'} lately</dd></dl>`;
+  const note=p.note?`<div class="dw-note">${escape(p.note)}</div>`:'';
+  // Hours & scheduling pattern — coordinator context, not an automated decision.
+  const likeText={high:'Likely to pick up',medium:'May pick up',low:'Less likely to pick up',unknown:'Not enough history'};
+  const likeCls=p.pickup_likelihood==='unknown'?'':p.pickup_likelihood;
+  let hoursInner;
+  if(p.hours_target!=null){
+    const pct=Math.min(100,Math.round(100*p.hours_logged/p.hours_target));
+    const over=p.hours_logged>=p.hours_target;
+    hoursInner=`<div class="hours-head"><span>Toward ${p.hours_target} hrs / ${escape(p.hours_window||'window')}</span><span class="big">${p.hours_logged}<span class="muted" style="font-weight:400;font-size:12px">/${p.hours_target} hrs</span></span></div>
+      <div class="hbar"><span class="${over?'over':''}" style="width:${pct}%"></span></div>
+      <div class="hours-sub">${over?'Target met.':p.hours_remaining+' hrs remaining this window.'} ${escape(p.cadence_note||'')}</div>`;
+  }else{
+    hoursInner=`<div class="hours-head"><span>No set hours requirement</span><span class="big">${p.hours_logged} hrs<span class="muted" style="font-weight:400;font-size:12px"> logged</span></span></div>
+      <div class="hours-sub">${escape(p.cadence_note||'')}</div>`;
+  }
+  const chips=`<div class="chip-row">${p.needs_hours?'<span class="chip needs"><span class="dot"></span>Needs hours</span>':''}<span class="chip ${likeCls}"><span class="dot"></span>${likeText[p.pickup_likelihood]||'Pickup estimate'} · estimate</span></div>`;
+  const hours=`<div class="sec-label">Hours & scheduling pattern</div>${hoursInner}${chips}`;
+  const hist=(p.history&&p.history.length)?`<div class="sec-label">Shift history</div><div class="hist">`+p.history.map(h=>`<div class="hrow ${h.outcome}"><div class="hd2"><span class="dt">${fmtDate(h.date)} · ${escape(h.role.replaceAll('_',' '))}</span><span class="oc">${outcomeLabel[h.outcome]||h.outcome}</span></div>${h.detail?'<div class="de">'+escape(h.detail)+'</div>':''}</div>`).join('')+`</div>`:`<div class="sec-label">Shift history</div><p class="empty" style="margin:0">No recorded shifts yet.</p>`;
+  const elig=`<div class="sec-label">Eligibility for this shift</div><ul class="dw-reasons">`+reasons.map(([ok,t])=>`<li class="${ok?'':'no'}">${escape(t)}</li>`).join('')+`</ul>`;
+  $('dwBody').innerHTML=`<span class="rel ${band}">${bandText}</span>${stats}${kv}${note}${hours}${hist}${elig}`;
+  $('drawer').classList.add('open');$('scrim').classList.add('open');$('dwClose').focus();
+}
+function closeDrawer(){$('drawer').classList.remove('open');$('scrim').classList.remove('open');}
+async function act(action,payload={}){if(busy)return;busy=true;$('error').classList.remove('show');$('error').textContent='';try{const r=await fetch('/api/'+action,{method:'POST',headers:{'Content-Type':'application/json','X-Demo-Session':session},body:JSON.stringify(payload)});const d=await r.json();if(!r.ok)throw Error(d.error);render(d);}catch(e){$('error').textContent=e.message;$('error').classList.add('show');}finally{busy=false}}
+$('approve').onclick=()=>act('approve',{candidates:[...document.querySelectorAll('#candidates input:checked')].map(e=>e.value)});$('new').onclick=()=>act('new');document.querySelectorAll('[data-minutes]').forEach(b=>b.onclick=()=>act('time',{minutes:Number(b.dataset.minutes)}));
+$('auto').onchange=()=>act('auto',{enabled:$('auto').checked});
+document.addEventListener('click',e=>{const b=e.target.closest('.vname');if(b&&b.dataset.vid)openDrawer(b.dataset.vid);});
+$('dwClose').onclick=closeDrawer;$('scrim').onclick=closeDrawer;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer();});
+let polling=null;
+function poll(){if(busy)return;fetch('/api/state').then(r=>r.json()).then(d=>{render(d);schedulePoll(d);}).catch(()=>{});}
+function schedulePoll(d){if(polling){clearTimeout(polling);polling=null;}if(d&&d.auto&&!d.auto_idle){polling=setTimeout(poll,1200);}}
+const _render=render;render=function(d){_render(d);schedulePoll(d);};
+fetch('/api/state').then(r=>r.json()).then(render).catch(e=>{$('error').textContent='Could not load the demo: '+e.message;$('error').classList.add('show');});
 </script></body></html>

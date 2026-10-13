@@ -27,7 +27,82 @@
       "recent_backup_requests": 2,
       "qualification_review": "approved",
       "previous_shifts": 1,
-      "distance_miles": 4
+      "distance_miles": 4,
+      "profile": {
+        "joined": "2024-03-02",
+        "phone": "(555) 014-2231",
+        "preferred_contact": "text",
+        "shifts_completed": 5,
+        "shifts_cancelled": 3,
+        "no_shows": 1,
+        "total_assignments": 9,
+        "reliability_pct": 56,
+        "last_active": "2026-09-12",
+        "note": "Reliable regular; the three cancellations were all within the last two months \u2014 worth a gentle check-in.",
+        "history": [
+          {
+            "date": "2026-09-12",
+            "role": "pantry_distribution",
+            "outcome": "cancelled",
+            "detail": "Cancelled ~3h before start"
+          },
+          {
+            "date": "2026-08-29",
+            "role": "pantry_distribution",
+            "outcome": "cancelled",
+            "detail": "Cancelled day-of"
+          },
+          {
+            "date": "2026-08-15",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-07-25",
+            "role": "pantry_distribution",
+            "outcome": "cancelled",
+            "detail": "Cancelled, found own swap"
+          },
+          {
+            "date": "2026-07-11",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-06-20",
+            "role": "food_collection",
+            "outcome": "no_show",
+            "detail": "Did not arrive"
+          },
+          {
+            "date": "2026-06-06",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-05-23",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-05-09",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          }
+        ],
+        "hours_target": 12,
+        "hours_window": "4 weeks",
+        "hours_logged": 6,
+        "hours_remaining": 6,
+        "needs_hours": true,
+        "cadence_note": "Usually 1 shift/week when active",
+        "pickup_likelihood": "low"
+      }
     },
     {
       "id": "v2",
@@ -47,7 +122,76 @@
       "recent_backup_requests": 0,
       "qualification_review": "approved",
       "previous_shifts": 3,
-      "distance_miles": 2
+      "distance_miles": 2,
+      "profile": {
+        "joined": "2023-09-18",
+        "phone": "(555) 088-7741",
+        "preferred_contact": "text",
+        "shifts_completed": 7,
+        "shifts_cancelled": 1,
+        "no_shows": 0,
+        "total_assignments": 8,
+        "reliability_pct": 88,
+        "last_active": "2026-09-05",
+        "note": "One of the most dependable backups. Lives 2 miles out; usually says yes to short-notice.",
+        "history": [
+          {
+            "date": "2026-09-05",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-22",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-08",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          },
+          {
+            "date": "2026-07-18",
+            "role": "pantry_distribution",
+            "outcome": "cancelled",
+            "detail": "Cancelled with 2 days notice"
+          },
+          {
+            "date": "2026-07-04",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-06-20",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-06-06",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-05-23",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": "Cross-trained day"
+          }
+        ],
+        "hours_target": null,
+        "hours_window": null,
+        "hours_logged": 9,
+        "hours_remaining": null,
+        "needs_hours": false,
+        "cadence_note": "Flexible; often says yes to short-notice",
+        "pickup_likelihood": "medium"
+      }
     },
     {
       "id": "v3",
@@ -67,7 +211,64 @@
       "recent_backup_requests": 2,
       "qualification_review": "approved",
       "previous_shifts": 1,
-      "distance_miles": 4
+      "distance_miles": 4,
+      "profile": {
+        "joined": "2025-01-12",
+        "phone": "(555) 063-5519",
+        "preferred_contact": "email",
+        "shifts_completed": 5,
+        "shifts_cancelled": 1,
+        "no_shows": 0,
+        "total_assignments": 6,
+        "reliability_pct": 83,
+        "last_active": "2026-09-03",
+        "note": "Newer but consistent. Slightly farther (4 mi); has accepted two prior backup asks.",
+        "history": [
+          {
+            "date": "2026-09-03",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-19",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Accepted a backup request"
+          },
+          {
+            "date": "2026-08-01",
+            "role": "pantry_distribution",
+            "outcome": "cancelled",
+            "detail": "Cancelled, illness"
+          },
+          {
+            "date": "2026-07-14",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-06-28",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-06-14",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          }
+        ],
+        "hours_target": 8,
+        "hours_window": "4 weeks",
+        "hours_logged": 3,
+        "hours_remaining": 5,
+        "needs_hours": true,
+        "cadence_note": "Aims for ~2 shifts/month",
+        "pickup_likelihood": "medium"
+      }
     },
     {
       "id": "v4",
@@ -87,7 +288,58 @@
       "recent_backup_requests": 2,
       "qualification_review": "approved",
       "previous_shifts": 1,
-      "distance_miles": 4
+      "distance_miles": 4,
+      "profile": {
+        "joined": "2025-05-30",
+        "phone": "(555) 029-1180",
+        "preferred_contact": "email",
+        "shifts_completed": 5,
+        "shifts_cancelled": 0,
+        "no_shows": 0,
+        "total_assignments": 5,
+        "reliability_pct": 100,
+        "last_active": "2026-09-07",
+        "note": "Trained for food collection, not distribution. Dependable in their own role.",
+        "history": [
+          {
+            "date": "2026-09-07",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-24",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-10",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-07-27",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-07-13",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": ""
+          }
+        ],
+        "hours_target": null,
+        "hours_window": null,
+        "hours_logged": 9,
+        "hours_remaining": null,
+        "needs_hours": false,
+        "cadence_note": "Food-collection regular, weekly",
+        "pickup_likelihood": "high"
+      }
     },
     {
       "id": "v5",
@@ -107,7 +359,58 @@
       "recent_backup_requests": 2,
       "qualification_review": "approved",
       "previous_shifts": 1,
-      "distance_miles": 4
+      "distance_miles": 4,
+      "profile": {
+        "joined": "2025-02-21",
+        "phone": "(555) 071-6642",
+        "preferred_contact": "text",
+        "shifts_completed": 3,
+        "shifts_cancelled": 1,
+        "no_shows": 1,
+        "total_assignments": 5,
+        "reliability_pct": 60,
+        "last_active": "2026-09-06",
+        "note": "Only free mornings; typically leaves by 10am, so rarely fits a full distribution shift.",
+        "history": [
+          {
+            "date": "2026-09-06",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Half shift"
+          },
+          {
+            "date": "2026-08-23",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Half shift"
+          },
+          {
+            "date": "2026-08-02",
+            "role": "pantry_distribution",
+            "outcome": "cancelled",
+            "detail": "Scheduling conflict"
+          },
+          {
+            "date": "2026-07-19",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Half shift"
+          },
+          {
+            "date": "2026-07-05",
+            "role": "pantry_distribution",
+            "outcome": "no_show",
+            "detail": "Overslept"
+          }
+        ],
+        "hours_target": 20,
+        "hours_window": "4 weeks",
+        "hours_logged": 4,
+        "hours_remaining": 16,
+        "needs_hours": true,
+        "cadence_note": "Mornings only; building up hours",
+        "pickup_likelihood": "low"
+      }
     },
     {
       "id": "v6",
@@ -127,7 +430,58 @@
       "recent_backup_requests": 2,
       "qualification_review": "approved",
       "previous_shifts": 1,
-      "distance_miles": 4
+      "distance_miles": 4,
+      "profile": {
+        "joined": "2024-11-04",
+        "phone": "(555) 045-9930",
+        "preferred_contact": "email",
+        "shifts_completed": 5,
+        "shifts_cancelled": 0,
+        "no_shows": 0,
+        "total_assignments": 5,
+        "reliability_pct": 100,
+        "last_active": "2026-09-01",
+        "note": "Strong record but has NOT opted in to backup requests. Would need to opt in before any outreach.",
+        "history": [
+          {
+            "date": "2026-09-01",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-18",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-04",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-07-21",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-07-07",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          }
+        ],
+        "hours_target": null,
+        "hours_window": null,
+        "hours_logged": 12,
+        "hours_remaining": null,
+        "needs_hours": false,
+        "cadence_note": "Steady weekly volunteer",
+        "pickup_likelihood": "high"
+      }
     },
     {
       "id": "v7",
@@ -152,7 +506,58 @@
       "recent_backup_requests": 2,
       "qualification_review": "approved",
       "previous_shifts": 1,
-      "distance_miles": 4
+      "distance_miles": 4,
+      "profile": {
+        "joined": "2024-06-15",
+        "phone": "(555) 052-3307",
+        "preferred_contact": "text",
+        "shifts_completed": 4,
+        "shifts_cancelled": 0,
+        "no_shows": 1,
+        "total_assignments": 5,
+        "reliability_pct": 80,
+        "last_active": "2026-09-04",
+        "note": "Already committed to another shift in this exact window \u2014 unavailable, not unreliable.",
+        "history": [
+          {
+            "date": "2026-09-04",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-21",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-07",
+            "role": "pantry_distribution",
+            "outcome": "no_show",
+            "detail": "Missed; family emergency"
+          },
+          {
+            "date": "2026-07-24",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-07-10",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          }
+        ],
+        "hours_target": 10,
+        "hours_window": "4 weeks",
+        "hours_logged": 9,
+        "hours_remaining": 1,
+        "needs_hours": true,
+        "cadence_note": "Close to monthly target",
+        "pickup_likelihood": "medium"
+      }
     },
     {
       "id": "v8",
@@ -172,7 +577,850 @@
       "recent_backup_requests": 0,
       "qualification_review": "pending",
       "previous_shifts": 0,
-      "distance_miles": 1
+      "distance_miles": 1,
+      "profile": {
+        "joined": "2026-09-28",
+        "phone": "(555) 019-4488",
+        "preferred_contact": "email",
+        "shifts_completed": 0,
+        "shifts_cancelled": 0,
+        "no_shows": 0,
+        "total_assignments": 0,
+        "reliability_pct": null,
+        "last_active": null,
+        "note": "Signed up online 2 weeks ago and self-booked before review. Qualifications NOT yet reviewed by a coordinator.",
+        "history": [],
+        "hours_target": null,
+        "hours_window": null,
+        "hours_logged": 0,
+        "hours_remaining": null,
+        "needs_hours": false,
+        "cadence_note": "No pattern yet (new)",
+        "pickup_likelihood": "unknown"
+      }
+    },
+    {
+      "id": "v9",
+      "name": "Imani",
+      "email": "imani@example.org",
+      "roles": [
+        "pantry_distribution"
+      ],
+      "backup_opt_in": false,
+      "availability": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "commitments": [],
+      "recent_backup_requests": 1,
+      "qualification_review": "approved",
+      "previous_shifts": 20,
+      "distance_miles": 2,
+      "profile": {
+        "joined": "2023-05-11",
+        "phone": "(555) 033-7781",
+        "preferred_contact": "text",
+        "shifts_completed": 16,
+        "shifts_cancelled": 0,
+        "no_shows": 0,
+        "total_assignments": 16,
+        "reliability_pct": 100,
+        "last_active": "2026-08-28",
+        "note": "Veteran volunteer, excellent record \u2014 but has not opted in to backup requests. One ask away from being a top backup.",
+        "history": [
+          {
+            "date": "2026-08-28",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-09",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-07-31",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Trained a new volunteer"
+          },
+          {
+            "date": "2026-07-22",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-07-15",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-06-30",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-06-16",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-06-09",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-05-25",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-05-19",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Trained a new volunteer"
+          },
+          {
+            "date": "2026-05-06",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-04-19",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          },
+          {
+            "date": "2026-04-06",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          },
+          {
+            "date": "2026-03-30",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-03-22",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-03-07",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          }
+        ],
+        "hours_target": null,
+        "hours_window": null,
+        "hours_logged": 16,
+        "hours_remaining": null,
+        "needs_hours": false,
+        "cadence_note": "Veteran; very consistent",
+        "pickup_likelihood": "high"
+      }
+    },
+    {
+      "id": "v10",
+      "name": "Jonah",
+      "email": "jonah@example.org",
+      "roles": [
+        "food_collection"
+      ],
+      "backup_opt_in": true,
+      "availability": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "commitments": [],
+      "recent_backup_requests": 0,
+      "qualification_review": "approved",
+      "previous_shifts": 12,
+      "distance_miles": 4,
+      "profile": {
+        "joined": "2024-10-02",
+        "phone": "(555) 077-2290",
+        "preferred_contact": "email",
+        "shifts_completed": 9,
+        "shifts_cancelled": 1,
+        "no_shows": 0,
+        "total_assignments": 10,
+        "reliability_pct": 90,
+        "last_active": "2026-08-26",
+        "note": "Reliable in food collection; not trained for distribution.",
+        "history": [
+          {
+            "date": "2026-08-26",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-13",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          },
+          {
+            "date": "2026-07-29",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": "Trained a new volunteer"
+          },
+          {
+            "date": "2026-07-18",
+            "role": "food_collection",
+            "outcome": "cancelled",
+            "detail": "Cancelled day-of"
+          },
+          {
+            "date": "2026-07-03",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-06-25",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": "Trained a new volunteer"
+          },
+          {
+            "date": "2026-06-17",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          },
+          {
+            "date": "2026-05-29",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          },
+          {
+            "date": "2026-05-17",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": "Trained a new volunteer"
+          },
+          {
+            "date": "2026-05-09",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": ""
+          }
+        ],
+        "hours_target": 6,
+        "hours_window": "4 weeks",
+        "hours_logged": 6,
+        "hours_remaining": 0,
+        "needs_hours": false,
+        "cadence_note": "Meets a modest monthly target",
+        "pickup_likelihood": "high"
+      }
+    },
+    {
+      "id": "v11",
+      "name": "Kira",
+      "email": "kira@example.org",
+      "roles": [
+        "pantry_distribution"
+      ],
+      "backup_opt_in": true,
+      "availability": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T10:30:00-04:00"
+        }
+      ],
+      "commitments": [],
+      "recent_backup_requests": 1,
+      "qualification_review": "approved",
+      "previous_shifts": 8,
+      "distance_miles": 6,
+      "profile": {
+        "joined": "2025-03-19",
+        "phone": "(555) 041-6654",
+        "preferred_contact": "text",
+        "shifts_completed": 6,
+        "shifts_cancelled": 1,
+        "no_shows": 2,
+        "total_assignments": 9,
+        "reliability_pct": 67,
+        "last_active": "2026-08-30",
+        "note": "Can usually only do the first 90 minutes. Good for short slots.",
+        "history": [
+          {
+            "date": "2026-08-30",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-20",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          },
+          {
+            "date": "2026-08-05",
+            "role": "pantry_distribution",
+            "outcome": "no_show",
+            "detail": "Did not arrive"
+          },
+          {
+            "date": "2026-07-16",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Trained a new volunteer"
+          },
+          {
+            "date": "2026-07-03",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-06-20",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-06-14",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          },
+          {
+            "date": "2026-06-08",
+            "role": "pantry_distribution",
+            "outcome": "cancelled",
+            "detail": "Cancelled day-of"
+          },
+          {
+            "date": "2026-05-23",
+            "role": "pantry_distribution",
+            "outcome": "no_show",
+            "detail": "Did not arrive"
+          }
+        ],
+        "hours_target": 24,
+        "hours_window": "4 weeks",
+        "hours_logged": 5,
+        "hours_remaining": 19,
+        "needs_hours": true,
+        "cadence_note": "Needs hours; short slots only",
+        "pickup_likelihood": "medium"
+      }
+    },
+    {
+      "id": "v12",
+      "name": "Luca",
+      "email": "luca@example.org",
+      "roles": [
+        "pantry_distribution"
+      ],
+      "backup_opt_in": true,
+      "availability": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "commitments": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "recent_backup_requests": 3,
+      "qualification_review": "approved",
+      "previous_shifts": 15,
+      "distance_miles": 3,
+      "profile": {
+        "joined": "2024-01-28",
+        "phone": "(555) 058-1143",
+        "preferred_contact": "text",
+        "shifts_completed": 10,
+        "shifts_cancelled": 3,
+        "no_shows": 1,
+        "total_assignments": 14,
+        "reliability_pct": 71,
+        "last_active": "2026-09-01",
+        "note": "Already booked elsewhere this window. History shows a few recent cancellations \u2014 worth watching.",
+        "history": [
+          {
+            "date": "2026-09-01",
+            "role": "pantry_distribution",
+            "outcome": "cancelled",
+            "detail": "Cancelled with notice"
+          },
+          {
+            "date": "2026-08-19",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-08",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-02",
+            "role": "pantry_distribution",
+            "outcome": "no_show",
+            "detail": "Did not arrive"
+          },
+          {
+            "date": "2026-07-16",
+            "role": "pantry_distribution",
+            "outcome": "cancelled",
+            "detail": "Illness"
+          },
+          {
+            "date": "2026-06-27",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          },
+          {
+            "date": "2026-06-16",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-06-02",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-05-14",
+            "role": "food_collection",
+            "outcome": "cancelled",
+            "detail": "Cancelled day-of"
+          },
+          {
+            "date": "2026-04-30",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-04-12",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-03-28",
+            "role": "food_collection",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          },
+          {
+            "date": "2026-03-21",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Trained a new volunteer"
+          },
+          {
+            "date": "2026-03-10",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          }
+        ],
+        "hours_target": 16,
+        "hours_window": "4 weeks",
+        "hours_logged": 10,
+        "hours_remaining": 6,
+        "needs_hours": true,
+        "cadence_note": "Variable; some recent cancellations",
+        "pickup_likelihood": "low"
+      }
+    },
+    {
+      "id": "v13",
+      "name": "Maya",
+      "email": "maya@example.org",
+      "roles": [
+        "pantry_distribution"
+      ],
+      "backup_opt_in": true,
+      "availability": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "commitments": [],
+      "recent_backup_requests": 0,
+      "qualification_review": "pending",
+      "previous_shifts": 0,
+      "distance_miles": 4,
+      "profile": {
+        "joined": "2026-09-20",
+        "phone": "(555) 012-9987",
+        "preferred_contact": "email",
+        "shifts_completed": 0,
+        "shifts_cancelled": 0,
+        "no_shows": 0,
+        "total_assignments": 0,
+        "reliability_pct": null,
+        "last_active": null,
+        "note": "Self-signed up last week; qualifications NOT yet reviewed. Do not invite until reviewed.",
+        "history": [],
+        "hours_target": 40,
+        "hours_window": "4 weeks",
+        "hours_logged": 0,
+        "hours_remaining": 40,
+        "needs_hours": true,
+        "cadence_note": "High hours requirement; not yet reviewed",
+        "pickup_likelihood": "unknown"
+      }
+    },
+    {
+      "id": "v14",
+      "name": "Noah",
+      "email": "noah@example.org",
+      "roles": [
+        "pantry_distribution"
+      ],
+      "backup_opt_in": true,
+      "availability": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "commitments": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "recent_backup_requests": 1,
+      "qualification_review": "approved",
+      "previous_shifts": 24,
+      "distance_miles": 2,
+      "profile": {
+        "joined": "2022-11-14",
+        "phone": "(555) 066-4420",
+        "preferred_contact": "text",
+        "shifts_completed": 17,
+        "shifts_cancelled": 1,
+        "no_shows": 0,
+        "total_assignments": 18,
+        "reliability_pct": 94,
+        "last_active": "2026-08-19",
+        "note": "One of the longest-tenured volunteers. Committed to another shift this morning.",
+        "history": [
+          {
+            "date": "2026-08-19",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-12",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-07-23",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          },
+          {
+            "date": "2026-07-05",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-06-27",
+            "role": "pantry_distribution",
+            "outcome": "cancelled",
+            "detail": "Cancelled day-of"
+          },
+          {
+            "date": "2026-06-12",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-05-24",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          },
+          {
+            "date": "2026-05-10",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-04-23",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-04-17",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-04-06",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-03-17",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Trained a new volunteer"
+          },
+          {
+            "date": "2026-03-09",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-02-19",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-02-11",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-02-05",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Trained a new volunteer"
+          },
+          {
+            "date": "2026-01-16",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          },
+          {
+            "date": "2025-12-29",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          }
+        ],
+        "hours_target": null,
+        "hours_window": null,
+        "hours_logged": 14,
+        "hours_remaining": null,
+        "needs_hours": false,
+        "cadence_note": "Long-tenured, reliable weekly",
+        "pickup_likelihood": "high"
+      }
+    },
+    {
+      "id": "v15",
+      "name": "Opal",
+      "email": "opal@example.org",
+      "roles": [
+        "pantry_distribution"
+      ],
+      "backup_opt_in": true,
+      "availability": [
+        {
+          "start": "2026-09-12T10:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "commitments": [],
+      "recent_backup_requests": 2,
+      "qualification_review": "approved",
+      "previous_shifts": 7,
+      "distance_miles": 5,
+      "profile": {
+        "joined": "2025-06-07",
+        "phone": "(555) 049-3312",
+        "preferred_contact": "email",
+        "shifts_completed": 7,
+        "shifts_cancelled": 2,
+        "no_shows": 0,
+        "total_assignments": 9,
+        "reliability_pct": 78,
+        "last_active": "2026-08-26",
+        "note": "Available late morning only; would miss the first hour.",
+        "history": [
+          {
+            "date": "2026-08-26",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-08-16",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Trained a new volunteer"
+          },
+          {
+            "date": "2026-08-07",
+            "role": "pantry_distribution",
+            "outcome": "cancelled",
+            "detail": "Cancelled with notice"
+          },
+          {
+            "date": "2026-07-30",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Trained a new volunteer"
+          },
+          {
+            "date": "2026-07-23",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-07-13",
+            "role": "pantry_distribution",
+            "outcome": "cancelled",
+            "detail": "Illness"
+          },
+          {
+            "date": "2026-06-27",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-06-18",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Trained a new volunteer"
+          },
+          {
+            "date": "2026-06-02",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Trained a new volunteer"
+          }
+        ],
+        "hours_target": 12,
+        "hours_window": "4 weeks",
+        "hours_logged": 4,
+        "hours_remaining": 8,
+        "needs_hours": true,
+        "cadence_note": "Late mornings; wants more hours",
+        "pickup_likelihood": "low"
+      }
+    },
+    {
+      "id": "v16",
+      "name": "Priya",
+      "email": "priya@example.org",
+      "roles": [
+        "pantry_distribution"
+      ],
+      "backup_opt_in": false,
+      "availability": [
+        {
+          "start": "2026-09-12T09:00:00-04:00",
+          "end": "2026-09-12T12:00:00-04:00"
+        }
+      ],
+      "commitments": [],
+      "recent_backup_requests": 0,
+      "qualification_review": "approved",
+      "previous_shifts": 5,
+      "distance_miles": 5,
+      "profile": {
+        "joined": "2025-11-30",
+        "phone": "(555) 071-8800",
+        "preferred_contact": "text",
+        "shifts_completed": 5,
+        "shifts_cancelled": 0,
+        "no_shows": 0,
+        "total_assignments": 5,
+        "reliability_pct": 100,
+        "last_active": "2026-08-27",
+        "note": "Clean record so far; not opted in to backup requests yet.",
+        "history": [
+          {
+            "date": "2026-08-27",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          },
+          {
+            "date": "2026-08-20",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Trained a new volunteer"
+          },
+          {
+            "date": "2026-08-03",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": "Covered a backup request"
+          },
+          {
+            "date": "2026-07-27",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          },
+          {
+            "date": "2026-07-20",
+            "role": "pantry_distribution",
+            "outcome": "completed",
+            "detail": ""
+          }
+        ],
+        "hours_target": 10,
+        "hours_window": "4 weeks",
+        "hours_logged": 2,
+        "hours_remaining": 8,
+        "needs_hours": true,
+        "cadence_note": "New-ish; building a record",
+        "pickup_likelihood": "high"
+      }
     }
   ]
 }

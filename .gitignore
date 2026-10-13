@@ -11,3 +11,7 @@ dist/
 runtime/
 .DS_Store
 work/
+.kiro/settings/
+.kiro/
+handoff/
+START-HERE.md
